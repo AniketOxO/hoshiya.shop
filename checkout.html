@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Hoshiya</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="og:title" content="Hoshiya Checkout" />
+  <meta name="description" content="Secure checkout for your Hoshiya order." />
+  <!-- Optional: configure Stripe Payment Link URL to accept live payments -->
+  <meta name="stripe-payment-link" content="">
+  <style>
+    .checkout-wrap{max-width:1024px;margin:110px auto 80px;padding:0 20px}
+    .co-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px}
+    @media(max-width:900px){.co-grid{grid-template-columns:1fr;}}
+    /* Manga steps */
+    .co-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0 18px}
+    .co-step{position:relative;background:#fff;border:3px solid var(--primary-black);border-radius:999px;padding:10px 14px;font-weight:900;text-align:center;box-shadow:4px 4px 0 0 var(--primary-black)}
+    .co-step.active{background:#fffbcc}
+    .co-step::after{content:'';position:absolute;inset:auto 10% -10px 10%;height:6px;background:repeating-linear-gradient(45deg,var(--primary-black) 0 6px,transparent 6px 12px);opacity:.15;border-radius:4px}
+    /* Panels */
+    .co-panel{position:relative;background:var(--primary-white);border:3px solid var(--primary-black);border-radius:14px;box-shadow:8px 8px 0 0 var(--primary-black);overflow:visible}
+    .co-panel::before{content:'';position:absolute;top:-10px;left:12px;right:auto;width:86px;height:18px;transform:rotate(-6deg);background:linear-gradient(transparent,transparent) padding-box, repeating-linear-gradient(45deg, rgba(0,0,0,.12) 0 6px, rgba(0,0,0,0) 6px 12px) border-box, #fffbcc;border:2px solid var(--primary-black);border-radius:6px;box-shadow:4px 4px 0 0 var(--primary-black)}
+    .co-head{padding:14px 18px;border-bottom:2px dashed var(--primary-black);font-weight:900;position:relative}
+    .co-head.bubble{background:#fff}
+    .co-head.bubble::after{content:'';position:absolute;left:18px;bottom:-10px;border:10px solid transparent;border-top-color:var(--primary-black)}
+    .co-head.bubble::before{content:'';position:absolute;left:18px;bottom:-7px;border:10px solid transparent;border-top-color:#fff;z-index:1}
+    .co-body{padding:18px; overflow:visible; background-image: radial-gradient(circle at 25% 25%, rgba(0,0,0,0.04) 2px, transparent 2px), radial-gradient(circle at 75% 75%, rgba(0,0,0,0.04) 2px, transparent 2px); background-size:24px 24px}
+    .co-summary-item{display:flex;gap:12px;border-bottom:1px dotted #ccc;padding:10px 0;align-items:center}
+    .co-summary-item:last-child{border-bottom:none}
+    .co-summary-name{font-weight:700}
+    .co-summary-price{margin-left:auto;font-weight:900}
+  .co-total{display:flex;justify-content:space-between;font-weight:900;font-size:18px;margin-top:10px}
+  .co-breakdown{display:grid;gap:6px;margin-top:8px}
+  .row{display:flex;justify-content:space-between}
+  .muted{color:#555}
+    .co-form label{font-weight:800;font-size:13px;display:block;margin:10px 0 6px}
+    .co-form input, .co-form select{width:100%;border:3px solid var(--primary-black);padding:12px 12px;border-radius:10px;box-shadow:4px 4px 0 0 var(--primary-black);background:#fff}
+    .co-form input:focus, .co-form select:focus{outline:none;box-shadow:6px 6px 0 0 var(--primary-black)}
+    .co-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:560px){.co-row{grid-template-columns:1fr}}
+    .co-pay{display:grid;gap:12px}
+    .co-pay .btn{width:100%}
+    .co-note{font-size:12px;color:#555;margin-top:6px}
+    /* Coupon row layout and Apply button sizing */
+    .co-extras .coupon-row{display:flex;gap:8px;align-items:stretch}
+    .co-extras #apply-coupon{
+      flex-shrink:0;white-space:nowrap;min-width:96px;
+      display:inline-flex;align-items:center;justify-content:center;
+      border:3px solid #000;border-radius:10px;padding:10px 16px;height:46px;
+    }
+    .co-extras #co-coupon{height:46px;flex:1 1 auto;min-width:0}
+    @media(max-width:480px){
+      .co-extras .coupon-row{flex-direction:column}
+      .co-extras #apply-coupon{width:100%}
+    }
+    /* Sticky pay bar */
+    .co-sticky{position:sticky;bottom:0;left:0;right:0;background:var(--primary-white);border-top:2px dashed var(--primary-black);padding:12px 0;margin-top:16px}
+    .co-sticky .container{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .co-sticky-total{font-weight:900;font-size:18px}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <a href="index.html" class="brand-link" aria-label="Go to homepage">
+            <h1 class="logo">Hoshiya</h1>
+            <div class="logo-accent"></div>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="checkout-wrap">
+    <h2 class="section-title">Checkout</h2>
+    <div class="co-steps" aria-label="Checkout progress">
+      <div class="co-step">1 · Cart</div>
+      <div class="co-step active">2 · Shipping</div>
+      <div class="co-step">3 · Pay</div>
+    </div>
+    <div class="co-grid">
+      <section class="co-panel">
+        <div class="co-head bubble">Shipping & Contact</div>
+        <div class="co-body">
+          <form id="checkout-form" class="co-form">
+            <div class="co-row">
+              <div>
+                <label for="co-fname">First name</label>
+                <input id="co-fname" required />
+              </div>
+              <div>
+                <label for="co-lname">Last name</label>
+                <input id="co-lname" required />
+              </div>
+            </div>
+            <label for="co-email">Email</label>
+            <input id="co-email" type="email" required />
+            <label for="co-phone">Phone</label>
+            <input id="co-phone" type="tel" />
+            <label for="co-addr1">Address</label>
+            <input id="co-addr1" required />
+            <div class="co-row">
+              <div>
+                <label for="co-city">City</label>
+                <input id="co-city" required />
+              </div>
+              <div>
+                <label for="co-zip">ZIP/Postal</label>
+                <input id="co-zip" required />
+              </div>
+            </div>
+            <div class="co-row">
+              <div>
+                <label for="co-country">Country</label>
+                <input id="co-country" required />
+              </div>
+              <div>
+                <label for="co-state">State/Region</label>
+                <input id="co-state" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <aside class="co-panel">
+        <div class="co-head bubble">Order Summary</div>
+        <div class="co-body">
+          <div id="co-summary"></div>
+          <div class="co-breakdown">
+            <div class="row"><span>Subtotal</span><span id="co-subtotal">$0.00</span></div>
+            <div class="row"><span>Discount</span><span id="co-discount">-$0.00</span></div>
+            <div class="row"><span>Shipping</span><span id="co-shipping-amt">$0.00</span></div>
+          </div>
+          <div class="co-total"><span>Total</span><span id="co-total">$0.00</span></div>
+          <div class="co-pay" style="margin-top:14px">
+            <button id="co-pay-btn" class="btn btn-primary"><span>Pay Now</span></button>
+            <div class="co-note">Demo checkout. No real charge. You can hook a backend endpoint later.</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Sticky total/CTA -->
+  <div class="co-sticky">
+    <div class="container">
+      <div class="co-sticky-total">Total: <span id="co-total-sticky">$0.00</span></div>
+      <button id="co-pay-btn-sticky" class="btn btn-primary"><span>Pay Now</span></button>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2025 Hoshiya. All rights reserved.</p></div></div></footer>
+
+  <script>
+    // Require login to access checkout
+    try {
+      const u = JSON.parse(localStorage.getItem('hoshiya_user')||'null');
+      if (!u) {
+        window.location.replace('login.html?next=' + encodeURIComponent('checkout.html'));
+      }
+    } catch {}
+    // Load cart
+    let cart = [];
+    try{ const saved = localStorage.getItem('hoshiya_cart'); if (saved) cart = JSON.parse(saved)||[]; }catch{}
+  const summaryEl = document.getElementById('co-summary');
+  const subtotalEl = document.getElementById('co-subtotal');
+  const discountEl = document.getElementById('co-discount');
+  const shipAmtEl = document.getElementById('co-shipping-amt');
+  const totalEl = document.getElementById('co-total');
+
+  // Coupons and shipping config
+  const COUPONS = { HERO10: 0.10, MANGA20: 0.20 };
+  
+  // Currency formatting to match cart (INR shows without decimals)
+  function formatPrice(val, currency){
+    try {
+      if (currency === 'INR') {
+        return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
+      }
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(val);
+    } catch {
+      return (currency === 'INR' ? `₹${Math.round(val)}` : `$${val}`);
+    }
+  }
+
+  // Determine currency from cart (prefer INR if any item is INR)
+  function getCartCurrency(){
+    try {
+      const hasINR = (cart||[]).some(i => (i.currency||'').toUpperCase()==='INR');
+      if (hasINR) return 'INR';
+      const set = Array.from(new Set((cart||[]).map(i=>i.currency||'USD')));
+      return set.length ? set[0] : 'USD';
+    } catch { return 'USD'; }
+  }
+
+  // Shipping estimator based on location and currency
+  function getLocation(){
+    const country = (document.getElementById('co-country')?.value||'').trim();
+    const state = (document.getElementById('co-state')?.value||'').trim();
+    const city = (document.getElementById('co-city')?.value||'').trim();
+    const zip = (document.getElementById('co-zip')?.value||'').trim();
+    return { country, state, city, zip };
+  }
+  function shippingOptionsFor(loc, currency){
+    const ctry = (loc.country||'').toLowerCase();
+    const city = (loc.city||'').toLowerCase();
+    const state = (loc.state||'').toLowerCase();
+    const isIN = /^(in|india)$/i.test(ctry) || ctry.includes('india') || currency==='INR';
+    const isMetro = /delhi|new delhi|mumbai|bombay|bengaluru|bangalore|kolkata|calcutta|chennai|hyderabad|pune|ahmedabad/.test(city) || /delhi|maharashtra|karnataka|west bengal|tamil nadu|telangana|gujarat/.test(state);
+    if (isIN){
+      const std = isMetro ? 39 : 79;
+      const exp = isMetro ? 149 : 199;
+      return {
+        standard: { key:'standard', label:'Standard (5–7 days)', amount: std },
+        express: { key:'express', label:'Express (2–3 days)', amount: exp },
+        free: { key:'free', label:'Free Pickup', amount: 0 }
+      };
+    }
+    return {
+      standard: { key:'standard', label:'Standard (5–7 days)', amount: 5.00 },
+      express: { key:'express', label:'Express (2–3 days)', amount: 15.00 },
+      free: { key:'free', label:'Free Pickup', amount: 0.00 }
+    };
+  }
+  function getSelectedShippingOption(opts){
+    const key = localStorage.getItem('hoshiya_ship')||'standard';
+    return opts[key] || opts.standard;
+  }
+
+    function renderSummary(){
+      if (!cart.length){ summaryEl.innerHTML = '<p>Your cart is empty.</p>'; totalEl.textContent = '$0.00'; return; }
+      const currency = getCartCurrency();
+      const rows = cart.map(item => `
+        <div class="co-summary-item" style="min-height:100px;align-items:center;gap:18px;">
+          <div class="cart-item-image" style="width:100px;height:100px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#f8f8f8;border-radius:14px;border:2px solid #eee;box-shadow:2px 2px 0 #ccc;">${item.imageSrc ? `<img src="${item.imageSrc}" alt="${item.name}" loading="lazy" decoding="async" style="width:92px;height:92px;object-fit:cover;border-radius:10px;">` : (item.emoji||'🛍️')}</div>
+          <div style="display:flex;flex-direction:column;flex:1;gap:6px;min-width:0">
+            <div class="co-summary-name" style="font-size:1.08em;word-break:break-word;">${item.name}${item.size?` <span style=\"font-size:12px;color:#555\">(Size ${item.size})</span>`:''}</div>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+              <span>×${item.quantity}</span>
+              <span class="co-summary-price" style="font-size:1.12em;font-weight:900;">${formatPrice(item.price*item.quantity, currency)}</span>
+            </div>
+          </div>
+        </div>`).join('');
+      summaryEl.innerHTML = rows;
+      const subtotal = cart.reduce((s,i)=>s+i.price*i.quantity,0);
+      const coupon = (localStorage.getItem('hoshiya_coupon')||'').toUpperCase();
+      const rate = COUPONS[coupon]||0;
+      const discount = +(subtotal * rate).toFixed(2);
+      const loc = getLocation();
+      const opts = shippingOptionsFor(loc, currency);
+      const ship = getSelectedShippingOption(opts);
+      const total = Math.max(0, subtotal - discount) + ship.amount;
+      subtotalEl.textContent = formatPrice(subtotal, currency);
+      discountEl.textContent = `-${formatPrice(discount, currency)}`;
+      shipAmtEl.textContent = formatPrice(ship.amount, currency);
+      totalEl.textContent = formatPrice(total, currency);
+      const sticky = document.getElementById('co-total-sticky'); if (sticky) sticky.textContent = formatPrice(total, currency);
+      const hint = document.getElementById('ship-hint');
+      if (hint){
+        const where = loc.city || loc.state || loc.country || 'your location';
+        hint.innerHTML = `Based on <strong>${where}</strong>: Standard ${formatPrice(opts.standard.amount, currency)}, Express ${formatPrice(opts.express.amount, currency)}`;
+      }
+    }
+    renderSummary();
+
+    function generateOrderId(){ const t = Date.now().toString(36); const r=Math.random().toString(36).slice(2,8); return `HSY-${t}-${r}`.toUpperCase(); }
+
+    async function submitOrder(){
+      const f = document.getElementById('checkout-form');
+      // Validate all required fields
+      let valid = true;
+      let firstInvalid = null;
+      const requiredFields = [
+        'co-fname','co-lname','co-email','co-addr1','co-city','co-zip','co-country'
+      ];
+      requiredFields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.boxShadow = '0 0 0 3px #e00, 4px 4px 0 0 var(--primary-black)';
+          if (!firstInvalid) firstInvalid = el;
+          valid = false;
+        } else {
+          el.style.boxShadow = '4px 4px 0 0 var(--primary-black)';
+        }
+      });
+      // Email format check
+      const emailEl = document.getElementById('co-email');
+      if (emailEl.value && !/^\S+@\S+\.\S+$/.test(emailEl.value)) {
+        emailEl.style.boxShadow = '0 0 0 3px #e00, 4px 4px 0 0 var(--primary-black)';
+        valid = false;
+        if (!firstInvalid) firstInvalid = emailEl;
+      }
+      // Show manga-style error if invalid
+      let err = document.getElementById('co-error');
+      if (!valid) {
+        if (!err) {
+          err = document.createElement('div');
+          err.id = 'co-error';
+          err.style = 'background:#fff3; color:#b00; font-weight:900; border:2px dashed #b00; border-radius:8px; margin:10px 0; padding:10px 16px; font-size:16px; box-shadow:2px 2px 0 #000;';
+          err.innerHTML = 'すべての必須項目を入力してください！<br>Please fill in all required fields.';
+          f.parentNode.insertBefore(err, f);
+        }
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      } else if (err) {
+        err.remove();
+      }
+      // Proceed as before
+      const data = {
+        orderId: generateOrderId(),
+        items: cart,
+        totals: (function(){
+          const currency = getCartCurrency();
+          const subtotal = cart.reduce((s,i)=>s+i.price*i.quantity,0);
+          const coupon = (localStorage.getItem('hoshiya_coupon')||'').toUpperCase();
+          const rate = COUPONS[coupon]||0;
+          const discount = +(subtotal * rate).toFixed(2);
+          const ship = getSelectedShippingOption(shippingOptionsFor(getLocation(), currency));
+          const total = Math.max(0, subtotal - discount) + ship.amount;
+          return { subtotal, discount, shipping: ship.amount, amount: total, currency };
+        })(),
+        customer: {
+          firstName: f['co-fname'].value, lastName: f['co-lname'].value, email: f['co-email'].value,
+          phone: f['co-phone'].value, address1: f['co-addr1'].value, city: f['co-city'].value,
+          zip: f['co-zip'].value, country: f['co-country'].value, state: f['co-state'].value
+        }
+      };
+
+      // Optional: send to endpoint if provided via the same meta config as contact form
+      const endpoint = document.querySelector('meta[name="form-endpoint"]')?.getAttribute('content') || '';
+      if (endpoint){
+          try{ await fetch(endpoint, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify({ type:'checkout', ...data }) }); }catch{}
+      }
+
+      // Optional Stripe Payment Link redirect via meta
+      const stripeLink = document.querySelector('meta[name="stripe-payment-link"]')?.getAttribute('content') || '';
+      // Clear cart and persist
+      try{ localStorage.setItem('hoshiya_cart', JSON.stringify([])); }catch{}
+      // Navigate accordingly
+      if (stripeLink){
+        window.location.href = stripeLink;
+      } else {
+        const q = new URLSearchParams({ order: data.orderId, amount: data.totals.amount.toFixed(2) }).toString();
+        window.location.href = 'thankyou.html?'+q;
+      }
+    }
+    // Simple UI for coupon + shipping
+    (function mountExtras(){
+      const panel = document.querySelector('aside.co-panel .co-body');
+      if(!panel) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'co-extras';
+      const savedCode = (localStorage.getItem('hoshiya_coupon')||'').toUpperCase();
+      const savedShip = localStorage.getItem('hoshiya_ship')||'standard';
+      wrap.innerHTML = `
+        <div style="border-top:2px dashed #000;margin:10px 0;padding-top:10px"></div>
+        <label for="co-coupon">Coupon code</label>
+        <div class="coupon-row">
+          <input id="co-coupon" placeholder="HERO10 or MANGA20" value="${savedCode}" style="flex:1;border:3px solid #000;padding:10px;border-radius:10px" />
+          <button id="apply-coupon" class="btn btn-outline">Apply</button>
+        </div>
+        <div class="co-note">Try HERO10 (10% off) or MANGA20 (20% off)</div>
+        <label for="co-ship" style="margin-top:12px;display:block">Shipping</label>
+        <select id="co-ship" style="width:100%;border:3px solid #000;padding:10px;border-radius:10px"></select>
+        <div id="ship-hint" class="co-note" style="margin-top:6px"></div>
+      `;
+      panel.appendChild(wrap);
+      const sel = document.getElementById('co-ship');
+      function populateShipping(){
+        const currency = getCartCurrency();
+        const opts = shippingOptionsFor(getLocation(), currency);
+        sel.innerHTML = `
+          <option value="standard">${opts.standard.label} — ${formatPrice(opts.standard.amount, currency)}</option>
+          <option value="express">${opts.express.label} — ${formatPrice(opts.express.amount, currency)}</option>
+          <option value="free">${opts.free.label} — ${formatPrice(opts.free.amount, currency)}</option>`;
+        sel.value = savedShip;
+      }
+      populateShipping();
+      document.getElementById('apply-coupon').addEventListener('click', (e)=>{ e.preventDefault(); const code=(document.getElementById('co-coupon').value||'').toUpperCase(); localStorage.setItem('hoshiya_coupon', code); renderSummary(); });
+      sel.addEventListener('change', ()=>{ localStorage.setItem('hoshiya_ship', sel.value); renderSummary(); });
+      ['co-country','co-state','co-city','co-zip'].forEach(id=>{ const el=document.getElementById(id); if(el){ el.addEventListener('input', ()=>{ populateShipping(); renderSummary(); }); }});
+    })();
+    document.getElementById('co-pay-btn').addEventListener('click', (e)=>{ e.preventDefault(); submitOrder(); });
+    document.getElementById('co-pay-btn-sticky').addEventListener('click', (e)=>{ e.preventDefault(); submitOrder(); });
+  </script>
+</body>
+</html>

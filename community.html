@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community — Hoshiya</title>
+  <meta name="description" content="Share your panel with the Hoshiya community." />
+  <meta name="upload-endpoint" content="https://formsubmit.co/an6753065@gmail.com">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <a href="index.html#home" class="logo" style="text-decoration:none; color:inherit;">Hoshiya</a>
+          <div class="logo-accent"></div>
+        </div>
+        <div class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="index.html#home" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            
+            <li><a href="lookbook.html" class="nav-link">Lookbook</a></li>
+            <li><a href="community.html" class="nav-link active">Community</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <div class="search-wrap" role="search" aria-label="Site search">
+            <input id="site-search" class="search-input" type="search" placeholder="Search products..." aria-label="Search products" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded="false" autocomplete="off" />
+            <button class="search-icon-btn" aria-label="Search" title="Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <ul id="search-suggestions" class="search-suggestions" role="listbox" aria-label="Search suggestions"></ul>
+          </div>
+          <button class="theme-btn" onclick="toggleTheme()"><span class="theme-icon" aria-hidden="true"></span></button>
+          <button class="cart-btn" onclick="toggleCart()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m3 3 1.664 9.98A2 2 0 0 0 6.64 15h9.72a2 2 0 0 0 1.976-1.02L21 5H7"></path>
+              <path d="M7 5V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            <span class="cart-count">0</span>
+          </button>
+          <button class="menu-toggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding: 120px 0 30px;">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <h2 class="section-title">
+          <span class="title-text">Share Your Panel</span>
+          <div class="title-underline"></div>
+        </h2>
+        <div class="manga-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" style="padding-top:0;">
+    <div class="container">
+      <form id="ugc-form" class="ugc-form" enctype="multipart/form-data" method="POST" action="https://formsubmit.co/an6753065@gmail.com">
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_subject" value="New Community Panel Submission" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <!-- Optional redirect after submit: uncomment and set your deployed URL -->
+        <!-- <input type="hidden" name="_next" value="https://your-site.com/community.html?submitted=1" /> -->
+        <!-- Honeypot for bots -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <div class="form-row">
+          <div class="form-field">
+            <label for="ugc-name">Name</label>
+            <input id="ugc-name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="form-field">
+            <label for="ugc-email">Email</label>
+            <input id="ugc-email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full">
+            <label for="ugc-caption">Caption</label>
+            <input id="ugc-caption" name="caption" type="text" placeholder="Tell us about your panel (optional)">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full">
+            <label for="ugc-file">Upload Image</label>
+            <input id="ugc-file" name="attachment" type="file" accept="image/*" required>
+            <!-- Preview (shown after a file is chosen) -->
+            <div id="ugc-preview" class="ugc-preview" hidden>
+              <img id="ugc-preview-img" class="thumb" alt="" />
+              <div class="meta">
+                <div id="ugc-preview-name">&nbsp;</div>
+                <small id="ugc-preview-size"></small>
+              </div>
+              <button id="ugc-preview-clear" class="clear-btn" type="button" aria-label="Remove selected image">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label class="checkbox"><input id="ugc-terms" type="checkbox" required> I agree to the community guidelines and allow moderation.</label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary"><span>Submit</span></button>
+        </div>
+      </form>
+      <div id="ugc-result" class="ugc-result" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Hoshiya</h4>
+          <p>Where style meets substance in the most epic way possible.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="community.html">Community</a></li>
+            <!-- About and Contact removed from footer per request -->
+            <li><a href="return-policy.html">Return Policy</a></li>
+            <li><a href="refund-policy.html">Refund Policy</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <!-- combined About & Contact link removed -->
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Hoshiya. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar (shared) -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <button class="cart-close" onclick="toggleCart()">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+  <div class="cart-total"><span>Total: <span id="cart-total">0.00</span></span></div>
+      <button id="cart-checkout-btn" class="btn btn-primary btn-full"><span>Checkout</span></button>
+    </div>
+  </div>
+  <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+  <!-- Compare Drawer (shared) -->
+  <div id="compare-drawer" class="compare-drawer" aria-hidden="true">
+    <div class="compare-header">
+      <h3>Compare Products</h3>
+      <button class="compare-close" onclick="toggleCompare()">×</button>
+    </div>
+    <div id="compare-content" class="compare-content"></div>
+  </div>
+  <button id="compare-fab" class="compare-fab" title="Open compare" onclick="toggleCompare()">⇄ <span id="compare-count">0</span></button>
+
+  
+
+  <!-- Dark Mode Toggle -->
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()"><span class="theme-icon" aria-hidden="true"></span></button>
+
+  <!-- Section Transition Overlay -->
+  <div id="section-transition" class="section-transition" aria-hidden="true">
+    <div class="st-panel">
+      <div class="st-wipe"></div>
+      <div class="st-word">Hoshiya</div>
+    </div>
+  </div>
+
+  <!-- Sounds -->
+  <audio id="click-sound" preload="auto"><source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmEcBjiS2fPEciYEkl1fdJmvrJChNjVhj+LwtmEcBzN2x/DdkEELGGHO8tiJOCgZaLvt559NEAxPp+PwwGEcCEGn4/C2YRwHM3bI8N2QQgEkxhsaGJUabLvt559NEA1QpuPwtmMcdIfH8N2QQAIUXrTp66hVFApGm+DyvGEcBzYrp+TxyJ+7l1ixFYEaAA=="></audio>
+  <audio id="cart-sound" preload="auto"><source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmEcBjiS2fPEciYEjqitrGEcCGGfj+Ly2IlVFApGm+DyvGYOGpSabLvt559NEA1QpuPwtmcCdIfH8N2QQAIUXrTp66hVFApGm+DyvGEcBzYrtYrg8NmJSNUcdIfM8diJVxQKRpzg8rxhHAc2K6eE4/DViFQUCkacrmeOGJi47qxpHg1Qp+HwwGMcCEOj5PLYiVYUCkae4PK8YhwHNius41IEAw==" type="audio/wav"></audio>
+
+  <script src="script.js"></script>
+  <script>
+    (function(){
+      const form = document.getElementById('ugc-form');
+      const meta = document.querySelector('meta[name="upload-endpoint"]');
+      const endpoint = meta && meta.getAttribute('content') || '';
+      if (!form) return;
+      // Preview setup (runs for all endpoints)
+      const fileInput = document.getElementById('ugc-file');
+      const preview = document.getElementById('ugc-preview');
+      const previewImg = document.getElementById('ugc-preview-img');
+      const nameEl = document.getElementById('ugc-preview-name');
+      const sizeEl = document.getElementById('ugc-preview-size');
+      const clearBtn = document.getElementById('ugc-preview-clear');
+  const ugcResult = document.getElementById('ugc-result');
+      let blobUrl = null;
+
+      const formatBytes = (b)=>{
+        if (!b && b !== 0) return '';
+        const u=['B','KB','MB','GB'];
+        let i=0, n=b; while(n>=1024 && i<u.length-1){ n/=1024; i++; }
+        return `${n.toFixed(n<10&&i>0?1:0)} ${u[i]}`;
+      };
+      function hidePreview(){
+        if (blobUrl){ URL.revokeObjectURL(blobUrl); blobUrl=null; }
+        if (previewImg) previewImg.src='';
+        if (nameEl) nameEl.textContent='';
+        if (sizeEl) sizeEl.textContent='';
+        if (preview) preview.hidden = true;
+      }
+      function showPreview(file){
+        if (!file) { hidePreview(); return; }
+        if (!file.type.startsWith('image/')){
+          if (ugcResult) { ugcResult.textContent = 'Please choose an image file.'; ugcResult.className='ugc-result err'; }
+          hidePreview();
+          return;
+        }
+        // Limit 10MB for smoother UX
+        const MAX = 10 * 1024 * 1024;
+        if (file.size > MAX){
+          if (ugcResult) { ugcResult.textContent = 'Image is too large (max 10MB). Please choose a smaller image.'; ugcResult.className='ugc-result err'; }
+          hidePreview();
+          return;
+        }
+        if (blobUrl) URL.revokeObjectURL(blobUrl);
+        blobUrl = URL.createObjectURL(file);
+        if (previewImg) previewImg.src = blobUrl;
+        if (nameEl) nameEl.textContent = file.name;
+        if (sizeEl) sizeEl.textContent = formatBytes(file.size);
+        if (preview) preview.hidden = false;
+      }
+      if (fileInput){
+        fileInput.addEventListener('change', (e)=>{
+          const f = e.target.files && e.target.files[0];
+          showPreview(f);
+        });
+      }
+      if (clearBtn){
+        clearBtn.addEventListener('click', (e)=>{
+          e.preventDefault();
+          if (fileInput) fileInput.value='';
+          hidePreview();
+        });
+      }
+      if (previewImg && typeof window.openImageFullscreen === 'function'){
+        previewImg.addEventListener('click', ()=> { if (previewImg.src) window.openImageFullscreen(previewImg.src); });
+      }
+      // If using FormSubmit (native POST), do not intercept — let the browser submit
+      if (endpoint.includes('formsubmit.co')){
+        form.action = endpoint;
+        return;
+      }
+      // Otherwise, keep demo/fetch behavior
+      const result = document.getElementById('ugc-result');
+      // Clear preview on hard resets as well
+      form.addEventListener('reset', hidePreview);
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const data = new FormData(form);
+        const btn = form.querySelector('button[type="submit"]');
+        const restore = btn && btn.innerHTML;
+        if (btn){ btn.disabled = true; btn.innerHTML = '<span>Uploading…</span>'; }
+        const after = (ok, msg) => {
+          if (btn){ btn.disabled = false; btn.innerHTML = restore; }
+          if (result){ result.textContent = msg; result.className = 'ugc-result ' + (ok? 'ok':'err'); }
+          if (ok) { form.reset(); hidePreview(); }
+        };
+        if (!endpoint){ setTimeout(()=> after(true, 'Thanks! Your panel was submitted for moderation (demo).'), 600); return; }
+        try{
+          const res = await fetch(endpoint, { method:'POST', body: data });
+          if (res.ok) after(true, 'Thanks! Your panel was submitted for moderation.');
+          else after(false, 'Upload failed. Please try again later.');
+        } catch(err){ after(false, 'Network error. Please try again.'); }
+      });
+    })();
+  </script>
+</body>
+</html>

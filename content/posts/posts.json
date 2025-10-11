@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "ink-born-storefront",
+    "title": "Ink-Born Storefront",
+    "date": "2025-09-14",
+    "cover": "https://images.unsplash.com/photo-1557683316-973673baf926?w=1200&auto=format&fit=crop&q=60",
+    "tags": ["design", "launch"],
+    "excerpt": "How we sketched, inked, and shipped a manga-styled shopping experience."
+  },
+  {
+    "slug": "search-like-a-samurai",
+    "title": "Search Like a Samurai",
+    "date": "2025-09-28",
+    "cover": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=1200&auto=format&fit=crop&q=60",
+    "tags": ["search", "ux"],
+    "excerpt": "Fuzzy matching, smart suggestions, and speed lines to slice through catalogs."
+  },
+  {
+    "slug": "compare-panels-done-right",
+    "title": "Compare Panels Done Right",
+    "date": "2025-10-03",
+    "cover": "https://images.unsplash.com/photo-1544551763-7ef4200c30d7?w=1200&auto=format&fit=crop&q=60",
+    "tags": ["compare", "patterns"],
+    "excerpt": "Comic panels that click: a delightful compare experience without the clutter."
+  }
+]

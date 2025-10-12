@@ -1,3 +1,170 @@
+/* --- Force Hide Profile Chip and Group While Searching on Mobile --- */
+@media (max-width: 600px) {
+    body.searching .auth-chip,
+    body.searching .auth-group,
+    body.searching .auth-chip[style*="display: block"],
+    body.searching .auth-chip[style*="display:block"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+        width: 1px !important;
+        height: 1px !important;
+    }
+}
+/* --- Hide Profile Chip While Searching on Mobile --- */
+@media (max-width: 600px) {
+    body.searching .auth-chip {
+        display: none !important;
+    }
+}
+/* --- Mobile Profile Chip (auth-chip) Fix --- */
+@media (max-width: 600px) {
+    .auth-chip {
+        max-width: 120px;
+        font-size: 15px;
+        margin: 4px 2px 0 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav-actions {
+        flex-wrap: wrap;
+        row-gap: 6px;
+    }
+}
+/* --- Mobile Nav Menu Slide/Dropdown --- */
+@media (max-width: 600px) {
+    .nav-menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100vw;
+        background: #fff;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+        z-index: 2000;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px 0 12px 0;
+        border-bottom: 2px solid #eee;
+        transition: all 0.25s cubic-bezier(.4,0,.2,1);
+    }
+    .nav-menu.open {
+        display: flex;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: flex-start;
+        padding-left: 18px;
+    }
+    .nav-link {
+        width: 100%;
+        padding: 10px 0 10px 0;
+        font-size: 18px;
+        border: none;
+        background: none;
+        text-align: left;
+    }
+}
+/* --- Mobile Menu Toggle Fix --- */
+@media (max-width: 600px) {
+    .nav-actions {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .menu-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+        margin-left: 8px;
+        z-index: 1003;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .menu-toggle span {
+        background: #000;
+    }
+}
+/* --- Mobile Search Bar/Logo Overlap Fix --- */
+@media (max-width: 600px) {
+    .search-wrap {
+        margin-top: 8px;
+        z-index: 20;
+        position: relative;
+    }
+    .logo {
+        display: block;
+        margin: 0 auto 2px auto;
+        text-align: center;
+        z-index: 30;
+        position: relative;
+    }
+    .nav-brand {
+        width: 100%;
+        justify-content: center;
+        align-items: flex-start;
+        z-index: 30;
+        position: relative;
+    }
+    .search-suggestions {
+        z-index: 1002;
+    }
+}
+/* --- Mobile Header/Actions Fix --- */
+@media (max-width: 600px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 0 6px;
+    }
+    .nav-brand {
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo {
+        font-size: 22px;
+        padding: 0 4px;
+    }
+    .nav-actions {
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 4px;
+        flex-wrap: wrap;
+    }
+    .nav-actions > * {
+        margin: 0 2px;
+    }
+    .menu-toggle {
+        margin-left: auto;
+    }
+    .auth-chip, .cart-btn, .theme-btn, .search-wrap {
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 15px;
+    }
+    .search-wrap {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin: 8px 0 0 0;
+    }
+}
 /* --- Enhanced Mobile Footer & Container Responsiveness --- */
 @media (max-width: 900px) {
     .footer-content {

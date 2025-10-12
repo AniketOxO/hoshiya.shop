@@ -1525,6 +1525,8 @@ function setupSearch() {
         if (!suggestions.classList.contains('open') && currentResults.length > 0) {
             suggestions.classList.add('open');
             searchInput.setAttribute('aria-expanded', 'true');
+            // mark page as searching so CSS can hide conflicting UI (profile chip, etc.)
+            try{ document.body.classList.add('searching'); }catch(e){}
         }
     };
 
@@ -1533,6 +1535,8 @@ function setupSearch() {
         searchInput.setAttribute('aria-expanded', 'false');
         activeIndex = -1;
         Array.from(suggestions.children).forEach(li => li.classList.remove('active'));
+        // remove searching state when suggestions closed
+        try{ document.body.classList.remove('searching'); }catch(e){}
     };
 
     const clearSearch = () => {
@@ -1541,6 +1545,7 @@ function setupSearch() {
         closeSuggestions();
         hideBanner();
         renderProducts(products);
+        try{ document.body.classList.remove('searching'); }catch(e){}
     };
 
     const highlight = (text, term) => {
@@ -1686,10 +1691,19 @@ function setupSearch() {
     const onInput = debounce((e) => {
         const val = e.target.value;
         searchWrap.classList.toggle('has-value', val.length > 0);
+        // Toggle searching class so CSS can hide the auth chip while typing/searching
+        try{
+            if (val && val.length > 0) document.body.classList.add('searching');
+            else document.body.classList.remove('searching');
+        }catch(e){}
         buildSuggestions(val);
     }, 120);
 
     searchInput.addEventListener('input', onInput);
+    // keep searching state on focus (useful on mobile when keyboard opens)
+    searchInput.addEventListener('focus', () => { try{ document.body.classList.add('searching'); }catch(e){} });
+    // remove searching state on blur after a short delay (allow clicking suggestions)
+    searchInput.addEventListener('blur', () => { setTimeout(()=>{ try{ if(!suggestions.classList.contains('open')) document.body.classList.remove('searching'); }catch(e){} }, 150); });
     // On native clear (blue X) the browser fires 'input' with empty value, which onInput handles.
 
     // Focus from icon buttons

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Disclaimer - Hoshiya</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar"><div class="container"><a href="index.html" class="logo">Hoshiya</a></div></nav>
+  </header>
+
+  <main class="container" style="padding:120px 20px 60px; max-width:900px;">
+    <h1>Disclaimer</h1>
+    <p>This Disclaimer governs your use of the Hoshiya website and services. By using the site you accept this Disclaimer in full. If you disagree with any part of this Disclaimer, please do not use the website.</p>
+
+    <h2>No Professional Advice</h2>
+    <p>Content on this site is provided for general informational and entertainment purposes only. It does not constitute professional, legal, financial, medical, or other advice. You should obtain appropriate professional advice before acting on any information contained on the site.</p>
+
+    <h2>No Warranties</h2>
+    <p>All content, products and services on the Hoshiya site are provided "as is" and "as available" without warranties of any kind, either express or implied. We expressly disclaim all warranties, including but not limited to merchantability, fitness for a particular purpose, accuracy, and non-infringement.</p>
+
+    <h2>Limitation of Liability</h2>
+    <p>To the fullest extent permitted by applicable law, Hoshiya, its officers, directors, employees, agents and suppliers shall not be liable for any indirect, incidental, special, consequential or exemplary damages, including but not limited to loss of profit, loss of data, loss of use, procurement of substitute goods or services, or other intangible losses arising out of or in connection with your use of the site.</p>
+
+    <h2>Third-Party Links and Content</h2>
+    <p>The site may contain links to third-party websites, services, or resources. Hoshiya does not endorse and is not responsible for the availability, accuracy, or content of such external sites, and you access them at your own risk. Any interaction you have with third parties through the site is solely between you and the applicable third party.</p>
+
+    <h2>Intellectual Property</h2>
+    <p>All content on the Hoshiya site, including text, images, logos, and designs, is the property of Hoshiya or its licensors and is protected by copyright, trademark and other intellectual property laws. You may not reproduce, distribute, modify or create derivative works of the content without prior written permission.</p>
+
+    <h2>Indemnification</h2>
+    <p>You agree to indemnify and hold harmless Hoshiya and its affiliates, officers, agents and employees from any claim, demand, loss, damages or costs (including legal fees) arising out of your use of the site or violation of these terms.</p>
+
+    <h2>Governing Law</h2>
+    <p>These terms are governed by the laws of the jurisdiction where Hoshiya is established, without regard to conflict of laws principles. Any disputes arising under or related to these terms will be subject to the exclusive jurisdiction of the courts in that jurisdiction.</p>
+
+    <h2>Changes to this Disclaimer</h2>
+    <p>We may update this Disclaimer from time to time. Changes will be posted on this page with an updated effective date. Continued use of the site after changes constitutes acceptance of the revised Disclaimer.</p>
+
+    <h2>Legal Notices & Contact</h2>
+    <p>For legal notices or questions regarding this Disclaimer, please contact our legal representative at <a href="mailto:ezyarohaclo@gmail.com">ezyarohaclo@gmail.com</a>.</p>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom"><p>&copy; 2025 Hoshiya. All rights reserved.</p></div>
+    </div>
+  </footer>
+</body>
+</html>

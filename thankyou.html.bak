@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — Hoshiya</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .ty-wrap{max-width:920px;margin:120px auto 80px;padding:0 20px;text-align:center}
+    .ty-card{position:relative;background:var(--primary-white);border:3px solid var(--primary-black);border-radius:16px;box-shadow:10px 10px 0 0 var(--primary-black);padding:28px 28px 32px;overflow:hidden}
+    .ty-hero{position:relative;margin:-8px -8px 16px -8px;padding:22px;border:3px solid var(--primary-black);border-radius:12px;background:var(--primary-white)}
+    .ty-hero::before{content:'';position:absolute;inset:8px;background-image:radial-gradient(circle at 18% 24%, rgba(0,0,0,0.05) 2px, transparent 2px),radial-gradient(circle at 72% 76%, rgba(0,0,0,0.05) 2px, transparent 2px);background-size:22px 22px;opacity:.5;pointer-events:none;border-radius:8px}
+    .ty-title{display:flex;gap:12px;align-items:center;justify-content:center}
+    .ty-title .ty-en{font-size:32px;font-weight:900}
+    .ty-title .ty-jp{font-size:18px;letter-spacing:.08em;padding:2px 10px;border:3px solid var(--primary-black);border-radius:10px;background:var(--primary-white);transform:skew(-6deg)}
+    .ty-stamp{position:absolute;top:16px;right:12px;padding:6px 14px;border:4px solid var(--accent-red);color:var(--accent-red);font-weight:900;transform:rotate(-12deg) scale(0.9);filter: drop-shadow(0 0 0 var(--primary-black));box-shadow: 0 0 0 3px var(--primary-white), 0 0 0 6px var(--accent-red);border-radius:8px;opacity:.0;transition:transform .18s ease, opacity .18s ease}
+    .ty-stamp.show{opacity:1;transform:rotate(-8deg) scale(1)}
+    .ty-sfx{position:absolute;font-weight:900;color:var(--accent-red);-webkit-text-stroke:2px var(--primary-black)}
+    .ty-sfx.s1{left:16px;top:12px;transform:rotate(-8deg)}
+    .ty-sfx.s2{right:20%;bottom:8px;transform:rotate(10deg)}
+    .ty-code{font-weight:900;font-size:20px;margin:12px 0}
+    .ty-amount{font-weight:900;color:var(--accent-red);}
+    .ty-meta{margin:8px 0 2px;color:#333}
+    .ty-actions{margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    /* Confetti */
+    .ty-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .ty-confetti span{position:absolute;font-size:18px;animation: confetti 2.8s ease-in-out forwards; opacity:0}
+    @keyframes confetti{0%{transform: translateY(-20px) translateX(0) rotate(0deg); opacity:0}10%{opacity:1}100%{transform: translateY(420px) translateX(var(--dx, 0)) rotate(240deg); opacity:0}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar"><div class="container"><div class="nav-brand"><h1 class="logo">Hoshiya</h1><div class="logo-accent"></div></div></div></nav>
+  </header>
+
+  <main class="ty-wrap">
+    <div class="ty-card">
+      <div class="ty-confetti" aria-hidden="true"></div>
+      <div class="ty-hero">
+        <div class="ty-title">
+          <span class="ty-en">Order Confirmed</span>
+          <span class="ty-jp" aria-hidden="true">注文完了</span>
+        </div>
+        <div class="ty-stamp" id="ty-stamp" aria-hidden="true">PAID</div>
+        <div class="ty-sfx s1">ドンッ</div>
+        <div class="ty-sfx s2">ザッ</div>
+      </div>
+      <p style="margin-bottom:6px">We’ve emailed your receipt. Your order is on its way!</p>
+      <div class="ty-meta">Date: <strong><span id="ty-date"></span></strong></div>
+      <div class="ty-code">Order ID: <span id="ty-id"></span>
+        <button id="ty-copy" class="copy-email-btn" type="button" title="Copy order ID">Copy</button>
+      </div>
+      <div>Total paid: <span class="ty-amount">$<span id="ty-amt"></span></span></div>
+      <div class="ty-actions">
+        <a class="btn btn-outline" href="index.html#products"><span>Continue Shopping</span></a>
+        <a class="btn btn-primary" href="index.html"><span>Home</span></a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2025 Hoshiya. All rights reserved.</p></div></div></footer>
+
+  <script>
+   (function(){
+     const p = new URLSearchParams(location.search);
+     const id = p.get('order') || 'HSY-XXXXXX';
+     const amt = p.get('amount') || '0.00';
+     document.getElementById('ty-id').textContent = id;
+     document.getElementById('ty-amt').textContent = amt;
+     // Date
+     try{
+       const now = new Date();
+       const fmt = new Intl.DateTimeFormat(undefined, { dateStyle:'medium', timeStyle:'short' });
+       document.getElementById('ty-date').textContent = fmt.format(now);
+     }catch{ document.getElementById('ty-date').textContent = new Date().toLocaleString(); }
+     // Copy order ID
+     const copyBtn = document.getElementById('ty-copy');
+     if (copyBtn) {
+       copyBtn.addEventListener('click', async ()=>{
+         try { await navigator.clipboard.writeText(id); copyBtn.textContent='Copied'; setTimeout(()=>copyBtn.textContent='Copy', 1200); } catch {}
+       });
+     }
+     // Stamp pop-in
+     const stamp = document.getElementById('ty-stamp');
+     setTimeout(()=> stamp && stamp.classList.add('show'), 120);
+     // Confetti sprinkle (lightweight)
+     const conf = document.querySelector('.ty-confetti');
+     if (conf) {
+       const pieces = 18;
+       const symbols = ['★','☆','✨'];
+       for (let i=0;i<pieces;i++){
+         const s = document.createElement('span');
+         s.textContent = symbols[i % symbols.length];
+         const left = Math.random()*100;
+         const delay = (Math.random()*0.6).toFixed(2);
+         const dx = (Math.random()*120-60).toFixed(0);
+         s.style.left = left+'%';
+         s.style.top = (-20 - Math.random()*60) + 'px';
+         s.style.setProperty('--dx', dx+'px');
+         s.style.animationDelay = delay+'s';
+         conf.appendChild(s);
+       }
+     }
+   })();
+  </script>
+</body>
+</html>

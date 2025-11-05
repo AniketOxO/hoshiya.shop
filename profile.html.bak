@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — Hoshiya</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Manage your Hoshiya profile." />
+  <style>
+    .profile-wrap{ padding: 120px 0; }
+    .pf-card{ max-width: 720px; margin: 0 auto; background:#fff; border:3px solid #000; border-radius:16px; box-shadow:10px 10px 0 0 #000; overflow:hidden; }
+    .pf-head{ padding: 18px 22px; border-bottom:2px dashed #000; display:flex; justify-content:space-between; align-items:center; font-weight:900; }
+    .pf-body{ padding: 22px; display:grid; gap: 14px; }
+    .pf-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pf-field{ display:grid; gap:6px; }
+    .pf-field label{ font-weight:800; font-size:13px; }
+    .pf-input{ height:42px; border:3px solid #000; border-radius:10px; padding:0 12px; font-weight:700; }
+    .pf-actions{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:10px; }
+    .pf-email-block{ border-top:2px dashed #000; padding-top:12px; margin-top:6px; display:grid; gap:10px; }
+    .pf-otp-row{ display:flex; gap:8px; align-items:center; }
+    .pf-otp-row input{ width:140px; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand"><a class="logo" href="index.html#home" style="text-decoration:none;color:inherit;">Hoshiya</a><div class="logo-accent"></div></div>
+        <div class="nav-menu"><ul class="nav-links">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="lookbook.html" class="nav-link">Lookbook</a></li>
+          <li><a href="community.html" class="nav-link">Community</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul></div>
+        <div class="nav-actions">
+          <div class="search-wrap" role="search" aria-label="Site search">
+            <input id="site-search" class="search-input" type="search" placeholder="Search products..." aria-label="Search products" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded="false" autocomplete="off" />
+            <button class="search-icon-btn" aria-label="Search" title="Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            </button>
+            <ul id="search-suggestions" class="search-suggestions" role="listbox" aria-label="Search suggestions"></ul>
+          </div>
+          <button class="theme-btn" onclick="toggleTheme()"><span class="theme-icon" aria-hidden="true"></span></button>
+          <button class="cart-btn" onclick="toggleCart()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 1.664 9.98A2 2 0 0 0 6.64 15h9.72a2 2 0 0 0 1.976-1.02L21 5H7"></path><path d="M7 5V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path></svg>
+            <span class="cart-count">0</span>
+          </button>
+          <button class="menu-toggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding: 120px 0 30px;">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <h2 class="section-title"><span class="title-text">Profile</span><div class="title-underline"></div></h2>
+        <div class="manga-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="profile-wrap">
+    <div class="container">
+      <div class="pf-card">
+        <div class="pf-head">
+          <div>Account Settings</div>
+          <button id="pf-logout" class="btn btn-outline" style="white-space:nowrap; padding:10px 14px;">Logout</button>
+        </div>
+        <form id="profile-form" class="pf-body">
+          <div class="pf-row">
+            <div class="pf-field">
+              <label for="pf-name">Name</label>
+              <input id="pf-name" class="pf-input" required />
+            </div>
+            <div class="pf-field">
+              <label for="pf-phone">Phone</label>
+              <input id="pf-phone" class="pf-input" type="tel" />
+            </div>
+          </div>
+          <div class="pf-actions">
+            <div>Signed in as <strong id="pf-email">user@example.com</strong></div>
+            <button class="btn btn-primary" type="submit" style="padding:12px 18px"><span>Save Profile</span></button>
+          </div>
+          <div class="pf-email-block">
+            <div class="pf-field">
+              <label for="pf-new-email">Change Email (via OTP)</label>
+              <div style="display:grid; grid-template-columns: 1fr auto; gap:8px; align-items:center;">
+                <input id="pf-new-email" class="pf-input" type="email" placeholder="new@email.com" />
+                <button id="pf-send-otp" type="button" class="btn btn-outline" style="white-space:nowrap; padding:10px 14px;">Send OTP</button>
+              </div>
+            </div>
+            <div id="pf-otp-wrap" class="pf-otp-row hidden">
+              <input id="pf-otp" class="pf-input" type="text" inputmode="numeric" placeholder="Enter OTP" style="max-width:180px;" />
+              <button id="pf-verify" type="button" class="btn btn-primary" style="padding:10px 14px;"><span>Verify</span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div id="cart-sidebar" class="cart-sidebar"><div class="cart-header"><h3>Shopping Cart</h3><button class="cart-close" onclick="toggleCart()">×</button></div><div class="cart-items" id="cart-items"></div><div class="cart-footer"><div class="cart-total"><span>Total: <span id="cart-total">0.00</span></span></div><button id="cart-checkout-btn" class="btn btn-primary btn-full"><span>Checkout</span></button></div></div>
+  <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+  <script src="script.js"></script>
+  <style>
+    @media(max-width: 700px){
+      .pf-row{ grid-template-columns: 1fr !important; }
+      .pf-actions{ flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+  </style>
+</body>
+</html>

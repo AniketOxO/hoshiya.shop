@@ -1,0 +1,1045 @@
+/* ============================================================================
+   COMPREHENSIVE MOBILE RESPONSIVE ENHANCEMENTS
+   Hoshiya.shop - Mobile-First Responsive Design
+   ============================================================================ */
+
+/* --- Mobile Viewport & Base Settings --- */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Smooth scrolling for mobile */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================================================
+   MOBILE TYPOGRAPHY IMPROVEMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    /* Better readability on mobile */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    h1 { font-size: 28px; line-height: 1.2; }
+    h2 { font-size: 24px; line-height: 1.3; }
+    h3 { font-size: 20px; line-height: 1.4; }
+    h4 { font-size: 18px; line-height: 1.4; }
+    h5, h6 { font-size: 16px; line-height: 1.4; }
+    
+    p { font-size: 15px; line-height: 1.6; margin-bottom: 16px; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 24px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 19px; }
+}
+
+/* ============================================================================
+   TOUCH-FRIENDLY INTERACTIONS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    /* Minimum touch target size (44x44px recommended) */
+    button, 
+    a.btn, 
+    .nav-link, 
+    .cart-btn, 
+    .theme-btn, 
+    .menu-toggle,
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 20px;
+    }
+    
+    /* Better spacing for touch targets */
+    .nav-link {
+        padding: 14px 20px;
+        font-size: 17px;
+    }
+    
+    /* Prevent accidental touches */
+    button, a {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Disable hover states on touch devices */
+    @media (hover: none) {
+        *:hover {
+            transition: none !important;
+        }
+    }
+}
+
+/* ============================================================================
+   MOBILE HEADER & NAVIGATION ENHANCEMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .navbar {
+        padding: 12px 0;
+    }
+    
+    .navbar .container {
+        padding: 0 16px;
+    }
+    
+    .logo {
+        font-size: 24px;
+        padding: 8px 0;
+    }
+    
+    /* Mobile menu improvements */
+    .nav-menu {
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-menu.open {
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Mobile search */
+    .search-wrap {
+        width: 100%;
+        max-width: 100%;
+        margin: 12px 0 !important;
+    }
+    
+    .search-input {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 12px 45px 12px 16px;
+    }
+}
+
+/* ============================================================================
+   MOBILE HERO SECTION
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 0 60px;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        gap: 30px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+    
+    .title-main {
+        font-size: 26px !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 24px;
+        font-size: 16px;
+    }
+    
+    .hero-visual {
+        max-width: 100%;
+    }
+    
+    .manga-panel {
+        height: 300px;
+    }
+    
+    /* Reduce animation complexity on mobile */
+    .sound-effect,
+    .floating-sfx {
+        font-size: 16px;
+    }
+    
+    /* Ensure smooth, natural animation speeds */
+    .sound-effect,
+    .floating-sfx,
+    .floating-star {
+        animation-duration: 3s !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 30px 0 50px;
+    }
+    
+    .hero-title {
+        font-size: 24px;
+    }
+    
+    .title-main {
+        font-size: 22px !important;
+    }
+    
+    .manga-panel {
+        height: 250px;
+    }
+}
+
+/* ============================================================================
+   MOBILE PRODUCT GRIDS & CARDS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .tiles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0;
+    }
+    
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .collab-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .product-card {
+        border-width: 2px;
+        border-radius: 12px;
+        box-shadow: 4px 4px 0 0 var(--primary-black);
+    }
+    
+    .product-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 5px 5px 0 0 var(--primary-black);
+    }
+    
+    .product-image {
+        height: 200px !important;
+    }
+    
+    .product-name {
+        font-size: 15px;
+        line-height: 1.3;
+    }
+    
+    .product-price {
+        font-size: 16px;
+    }
+    
+    .product-footer .btn {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tiles-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .product-image {
+        height: 240px !important;
+    }
+}
+
+/* ============================================================================
+   MOBILE SECTIONS & SPACING
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    section {
+        padding: 50px 0;
+    }
+    
+    .container {
+        padding: 0 16px;
+    }
+    
+    .section-header {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+    
+    .title-text {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 40px 0;
+    }
+    
+    .container {
+        padding: 0 14px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+    
+    .title-text {
+        font-size: 20px;
+    }
+}
+
+/* ============================================================================
+   MOBILE FORMS & INPUTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    input, 
+    textarea, 
+    select {
+        font-size: 16px !important; /* Prevents iOS zoom */
+        padding: 14px 16px;
+        border-radius: 8px;
+    }
+    
+    textarea {
+        min-height: 120px;
+    }
+    
+    .newsletter-panel {
+        padding: 30px 20px;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .newsletter-form input {
+        width: 100%;
+    }
+    
+    .newsletter-form button {
+        width: 100%;
+        padding: 14px;
+    }
+}
+
+/* ============================================================================
+   MOBILE CART
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .cart-panel {
+        width: 100%;
+        max-width: 100%;
+        right: -100%;
+        border-left: none;
+        border-top: 3px solid var(--primary-black);
+    }
+    
+    .cart-panel.open {
+        right: 0;
+    }
+    
+    .cart-header {
+        padding: 16px;
+        position: sticky;
+        top: 0;
+        background: var(--primary-white);
+        z-index: 10;
+    }
+    
+    .cart-items {
+        padding: 16px;
+    }
+    
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+    }
+    
+    .cart-item-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .cart-footer {
+        padding: 20px 16px;
+        position: sticky;
+        bottom: 0;
+        background: var(--primary-white);
+    }
+}
+
+/* ============================================================================
+   MOBILE FOOTER
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 50px 0 30px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-col h4 {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+    
+    .footer-col ul {
+        gap: 10px;
+    }
+    
+    .footer-col a {
+        font-size: 15px;
+    }
+    
+    .footer-bottom {
+        margin-top: 30px;
+        padding-top: 20px;
+        text-align: center;
+    }
+}
+
+/* ============================================================================
+   MOBILE LOADING SCREEN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .loading-screen {
+        padding: 20px;
+    }
+    
+    .loader-stage {
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+    
+    .tc-wordmark {
+        font-size: 32px;
+    }
+    
+    .tc-tagline {
+        font-size: 12px;
+    }
+    
+    .loader-skip {
+        bottom: 30px;
+        right: 20px;
+        padding: 10px 18px;
+        font-size: 13px;
+    }
+}
+
+/* ============================================================================
+   MOBILE CAROUSEL/SLIDER
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .carousel {
+        grid-auto-columns: 85%;
+        gap: 16px;
+        padding: 0 16px;
+    }
+    
+    .carousel .product-card {
+        min-width: 280px;
+    }
+    
+    /* Add scroll snap for better swiping */
+    .carousel {
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .carousel .product-card {
+        scroll-snap-align: start;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+        grid-auto-columns: 90%;
+        gap: 12px;
+    }
+    
+    .carousel .product-card {
+        min-width: 260px;
+    }
+}
+
+/* ============================================================================
+   MOBILE UTILITY CLASSES
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+    
+    .show-mobile {
+        display: block !important;
+    }
+    
+    .text-center-mobile {
+        text-align: center !important;
+    }
+    
+    .full-width-mobile {
+        width: 100% !important;
+    }
+}
+
+/* ============================================================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    /* Smooth, natural animation speeds for mobile */
+    .nav-menu {
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .menu-toggle span {
+        transition: all 0.3s ease;
+    }
+    
+    button, .btn {
+        transition: all 0.25s ease;
+    }
+    
+    .product-card {
+        transition: transform 0.3s ease, box-shadow 0.2s ease;
+    }
+    
+    /* Disable parallax and complex animations on mobile */
+    .speed-lines,
+    .action-lines {
+        display: none;
+    }
+    
+    /* Optimize images for mobile */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+/* ============================================================================
+   MOBILE ACCESSIBILITY IMPROVEMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    /* Better focus states for keyboard navigation */
+    *:focus {
+        outline: 2px solid #000;
+        outline-offset: 2px;
+    }
+    
+    /* Skip to content link for mobile */
+    .skip-to-content {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #000;
+        color: #fff;
+        padding: 8px 16px;
+        text-decoration: none;
+        z-index: 100;
+    }
+    
+    .skip-to-content:focus {
+        top: 0;
+    }
+}
+
+/* ============================================================================
+   LANDSCAPE MOBILE OPTIMIZATIONS
+   ============================================================================ */
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding: 30px 0;
+        min-height: auto;
+    }
+    
+    .manga-panel {
+        height: 250px;
+    }
+    
+    .nav-menu {
+        max-height: 60vh;
+    }
+}
+
+/* ============================================================================
+   TABLET OPTIMIZATIONS (600px - 900px)
+   ============================================================================ */
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .tiles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .collab-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .product-image {
+        height: 240px !important;
+    }
+}
+
+/* ============================================================================
+   SMALL MOBILE DEVICES (<375px)
+   ============================================================================ */
+
+@media (max-width: 374px) {
+    .hero-title {
+        font-size: 20px;
+    }
+    
+    .title-main {
+        font-size: 19px !important;
+    }
+    
+    .btn {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    
+    .product-name {
+        font-size: 14px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+}
+
+/* ============================================================================
+   DARK MODE MOBILE ADJUSTMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .dark-mode .header {
+        background: #111;
+        box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+    }
+    
+    .dark-mode .nav-menu {
+        background: #111;
+        border-bottom-color: #333;
+    }
+    
+    .dark-mode .cart-panel {
+        background: #111;
+        border-top-color: #fff;
+    }
+}
+
+/* ============================================================================
+   MOBILE SAFE AREAS (iPhone Notch Support)
+   ============================================================================ */
+
+@supports (padding: max(0px)) {
+    @media (max-width: 768px) {
+        .header {
+            padding-left: max(16px, env(safe-area-inset-left));
+            padding-right: max(16px, env(safe-area-inset-right));
+        }
+        
+        .footer {
+            padding-left: max(16px, env(safe-area-inset-left));
+            padding-right: max(16px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+        
+        .cart-panel {
+            padding-bottom: max(20px, env(safe-area-inset-bottom));
+        }
+    }
+}
+
+/* ============================================================================
+   TOUCH FEEDBACK & INTERACTIONS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    /* Touch active state */
+    .touch-active {
+        opacity: 0.7;
+        transform: scale(0.98);
+        transition: all 0.1s ease;
+    }
+    
+    /* Button touch feedback */
+    button.touch-active,
+    .btn.touch-active {
+        opacity: 0.8;
+        transform: translateY(2px);
+    }
+    
+    /* Product card touch feedback */
+    .product-card.touch-active {
+        transform: translateY(2px);
+        box-shadow: 3px 3px 0 0 var(--primary-black);
+    }
+}
+
+/* ============================================================================
+   MENU OPEN STATE (BODY)
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+    
+    body.menu-open .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        z-index: 999;
+    }
+    
+    body.menu-open.dark-mode .nav-menu {
+        background: rgba(17, 17, 17, 0.98);
+    }
+}
+
+/* ============================================================================
+   MOBILE MENU TOGGLE ANIMATION
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        position: relative;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+    }
+    
+    .menu-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--primary-black);
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .dark-mode .menu-toggle span {
+        background: var(--primary-white);
+    }
+    
+    /* Animated hamburger to X */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(7px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-7px);
+    }
+}
+
+/* ============================================================================
+   REDUCED MOTION SUPPORT
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .reduce-motion *,
+    .reduce-motion *::before,
+    .reduce-motion *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================================================
+   SLOW CONNECTION OPTIMIZATIONS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .slow-connection * {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .slow-connection img {
+        background: #f0f0f0;
+    }
+}
+
+/* ============================================================================
+   MOBILE SKELETON LOADING STATES
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .skeleton {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: skeleton-loading 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes skeleton-loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+}
+
+/* ============================================================================
+   MOBILE-SPECIFIC UTILITY CLASSES
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block !important;
+    }
+    
+    .mobile-hidden {
+        display: none !important;
+    }
+    
+    .mobile-text-sm {
+        font-size: 14px !important;
+    }
+    
+    .mobile-text-base {
+        font-size: 16px !important;
+    }
+    
+    .mobile-text-lg {
+        font-size: 18px !important;
+    }
+    
+    .mobile-p-sm {
+        padding: 8px !important;
+    }
+    
+    .mobile-p-md {
+        padding: 16px !important;
+    }
+    
+    .mobile-p-lg {
+        padding: 24px !important;
+    }
+    
+    .mobile-mt-sm {
+        margin-top: 8px !important;
+    }
+    
+    .mobile-mt-md {
+        margin-top: 16px !important;
+    }
+    
+    .mobile-mt-lg {
+        margin-top: 24px !important;
+    }
+}
+
+/* ============================================================================
+   MOBILE STICKY ELEMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .mobile-sticky {
+        position: sticky;
+        top: 60px;
+        z-index: 10;
+    }
+    
+    .mobile-sticky-bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--primary-white);
+        border-top: 2px solid var(--primary-black);
+        padding: 12px 16px;
+        box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+    }
+}
+
+/* ============================================================================
+   MOBILE OVERLAY & MODALS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .mobile-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 998;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    
+    .mobile-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* ============================================================================
+   MOBILE PULL TO REFRESH INDICATOR
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .pull-to-refresh {
+        position: fixed;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        background: var(--primary-black);
+        color: var(--primary-white);
+        border-radius: 20px;
+        font-size: 14px;
+        transition: top 0.3s ease;
+        z-index: 1001;
+    }
+    
+    .pull-to-refresh.active {
+        top: 70px;
+    }
+}
+
+/* ============================================================================
+   MOBILE BOTTOM NAVIGATION (IF NEEDED)
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--primary-white);
+        border-top: 2px solid var(--primary-black);
+        display: flex;
+        justify-content: space-around;
+        padding: 8px 0;
+        padding-bottom: max(8px, env(safe-area-inset-bottom));
+        z-index: 100;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        padding: 8px 12px;
+        text-decoration: none;
+        color: var(--primary-black);
+        font-size: 11px;
+        min-width: 60px;
+        transition: all 0.2s ease;
+    }
+    
+    .bottom-nav-item.active {
+        color: #000;
+        font-weight: 700;
+    }
+    
+    .bottom-nav-item svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+

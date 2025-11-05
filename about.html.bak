@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Hoshiya</title>
+  <meta name="description" content="Learn about Hoshiya's mission, design values, and playful shopping experience.">
+  <meta property="og:title" content="About — Hoshiya">
+  <meta property="og:description" content="Our mission, values, and journey behind Hoshiya.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — Hoshiya">
+  <meta name="twitter:description" content="Our mission, values, and journey behind Hoshiya.">
+  <meta name="twitter:image" content="images/og-image.svg">
+  <meta name="form-endpoint" content="">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header (shared) -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <a href="index.html#home" class="logo" style="text-decoration:none; color:inherit;">Hoshiya</a>
+          <div class="logo-accent"></div>
+        </div>
+        <div class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="index.html#home" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            
+            <li><a href="lookbook.html" class="nav-link">Lookbook</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="about.html" class="nav-link active">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <div class="search-wrap" role="search" aria-label="Site search">
+            <input id="site-search" class="search-input" type="search" placeholder="Search products..." aria-label="Search products" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded="false" autocomplete="off" />
+            <button class="search-icon-btn" aria-label="Search" title="Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            </button>
+            <ul id="search-suggestions" class="search-suggestions" role="listbox" aria-label="Search suggestions"></ul>
+          </div>
+          <button class="theme-btn" onclick="toggleTheme()"><span class="theme-icon" aria-hidden="true"></span></button>
+          <button class="cart-btn" onclick="toggleCart()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 1.664 9.98A2 2 0 0 0 6.64 15h9.72a2 2 0 0 0 1.976-1.02L21 5H7"></path><path d="M7 5V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path></svg>
+            <span class="cart-count">0</span>
+          </button>
+          <button class="menu-toggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- About Hero -->
+  <section class="hero about-hero" style="padding: 140px 0 60px;">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <h2 class="section-title">
+          <span class="title-text">About Hoshiya</span>
+          <div class="title-underline"></div>
+        </h2>
+        <div class="manga-dots"></div>
+      </div>
+      <div class="manga-text-bubble about-bubble">
+        <button class="bubble-copy" aria-label="Copy text" title="Copy to clipboard">⧉</button>
+        <p class="hero-subtitle">Born at the intersection of modern ecommerce and Japanese manga artistry. We build playful, bold shopping experiences with crisp black-and-white ink lines, dynamic panels, and expressive micro-interactions.</p>
+      </div>
+      <div class="bubble-controls" aria-label="About messages navigation"></div>
+    </div>
+  </section>
+
+  <!-- Mission & Values -->
+  <section class="features about-features" style="border-top:none;">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-panel">
+          <div class="feature-icon">🖋️</div>
+          <h3>Our Mission</h3>
+          <p>Make shopping feel like turning pages of your favorite manga — delightful, dynamic, and surprisingly human.</p>
+        </div>
+        <div class="feature-panel">
+          <div class="feature-icon">🎨</div>
+          <h3>Design Values</h3>
+          <p>Clarity over clutter, bold contrasts, and playful details that bring each interaction to life.</p>
+        </div>
+        <div class="feature-panel">
+          <div class="feature-icon">⚡</div>
+          <h3>Performance</h3>
+          <p>Fast, accessible experiences that work beautifully on any device — no heavy frameworks required.</p>
+        </div>
+        <div class="feature-panel">
+          <div class="feature-icon">🤝</div>
+          <h3>Community</h3>
+          <p>We listen, iterate, and collaborate with our customers to keep improving the adventure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="products" style="padding-top:60px;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="title-text">Our Journey</span><div class="title-underline"></div></h2>
+        <div class="manga-dots"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-badge">2023</div>
+          <div class="timeline-card">Concept sketched in a cafe with a notebook full of panel frames and sound effects.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-badge">2024</div>
+          <div class="timeline-card">First launch: bold ink outlines, panel-based hero, and a cart that slides like a page.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-badge">2025</div>
+          <div class="timeline-card">Refined search UX, simplified full-image viewer, and an artful dark mode — all in vanilla JS.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="testimonials about-team">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="title-text">Meet the Team</span><div class="title-underline"></div></h2>
+        <div class="manga-dots"></div>
+      </div>
+      <div class="team-grid">
+        <div class="product-card team-card">
+          <div class="product-image">🧑‍🎨</div>
+          <div class="product-info">
+            <h3 class="product-name">Art Director</h3>
+            <div class="team-quote">“I live for clean lines and smart motion.”</div>
+            <div class="team-social">
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Art Director on X"><img class="team-social-icon" src="https://cdn.simpleicons.org/x/000000" alt="X (Twitter)" /></a>
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Art Director on GitHub"><img class="team-social-icon" src="https://cdn.simpleicons.org/github/000000" alt="GitHub" /></a>
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Art Director on Instagram"><img class="team-social-icon" src="https://cdn.simpleicons.org/instagram/000000" alt="Instagram" /></a>
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Art Director on Dribbble"><img class="team-social-icon" src="https://cdn.simpleicons.org/dribbble/000000" alt="Dribbble" /></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card team-card">
+          <div class="product-image"><picture>
+      <source srcset="images/webp/Aniket Sharma.webp" type="image/webp">
+      <img src="images/Aniket Sharma.jpg" alt="Founder" loading="lazy" decoding="async">
+    </picture></div>
+          <div class="product-info">
+            <h3 class="product-name">Founder</h3>
+            <div class="team-quote">“Brick by Brick.”</div>
+            <div class="team-social">
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Founder on X"><img class="team-social-icon" src="https://cdn.simpleicons.org/x/000000" alt="X (Twitter)" /></a>
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Founder on GitHub"><img class="team-social-icon" src="https://cdn.simpleicons.org/github/000000" alt="GitHub" /></a>
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Founder on Instagram"><img class="team-social-icon" src="https://cdn.simpleicons.org/instagram/000000" alt="Instagram" /></a>
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Founder on Dribbble"><img class="team-social-icon" src="https://cdn.simpleicons.org/dribbble/000000" alt="Dribbble" /></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card team-card">
+          <div class="product-image">🧑‍🚀</div>
+          <div class="product-info">
+            <h3 class="product-name">Product Lead</h3>
+            <div class="team-quote">“Ship fast, iterate faster, keep the ink bold.”</div>
+            <div class="team-social">
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Product Lead on X"><img class="team-social-icon" src="https://cdn.simpleicons.org/x/000000" alt="X (Twitter)" /></a>
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Product Lead on GitHub"><img class="team-social-icon" src="https://cdn.simpleicons.org/github/000000" alt="GitHub" /></a>
+              <a class="team-social-link" href="#" target="_blank" rel="noopener" aria-label="Product Lead on Instagram"><img class="team-social-icon" src="https://cdn.simpleicons.org/instagram/000000" alt="Instagram" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="products" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="title-text">FAQ</span><div class="title-underline"></div></h2>
+        <div class="manga-dots"></div>
+      </div>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>What makes Hoshiya different?</summary>
+          <div class="faq-content">A crisp visual language inspired by manga, fast performance, and playful details without heavy dependencies.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you support dark mode?</summary>
+          <div class="faq-content">Yes! We persist your preference and style UI elements for a comfortable night read.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is the cart real?</summary>
+          <div class="faq-content">This demo cart behaves like a real one — add, remove, view images — but checkout is mocked.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA (shared) -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-panel">
+        <div class="newsletter-content">
+          <h3>Join Our Adventure</h3>
+          <p>Subscribe to get the latest drops and behind-the-scenes sketches.</p>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Enter your email" required />
+          <button class="btn btn-primary" type="submit"><span>Subscribe</span><div class="btn-effect"></div></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (shared) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Hoshiya</h4>
+          <p>Where style meets substance in the most epic way possible.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <!-- About and Contact removed from footer per request -->
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="return-policy.html">Return Policy</a></li>
+            <li><a href="refund-policy.html">Refund Policy</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <!-- combined About & Contact link removed -->
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Customer Service</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-link">📱</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">📷</a>
+            <a href="#" class="social-link">📘</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+  <p>&copy; 2025 Hoshiya. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar (shared) -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <button class="cart-close" onclick="toggleCart()">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+  <div class="cart-total"><span>Total: <span id="cart-total">0.00</span></span></div>
+      <button class="btn btn-primary btn-full"><span>Checkout</span></button>
+    </div>
+  </div>
+  <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+  
+
+  <!-- Dark Mode Toggle -->
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()"><span class="theme-icon" aria-hidden="true"></span></button>
+
+  <!-- Sound Effects (still present but muted by default via JS) -->
+  <audio id="click-sound" preload="auto"><source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmEcBjiS2fPEciYEkl1fdJmvrJChNjVhj+LwtmEcBzN2x/DdkEELGGHO8tiJOCgZaLvt559NEAxPp+PwwGEcCEGn4/C2YRwHM3bI8N2QQgEkxhsaGJUabLvt559NEA1QpuPwtmMcdIfH8N2QQAIUXrTp66hVFApGm+DyvGEcBzYrp+TxyJ+7l1ixFYEaAA=="></audio>
+  <audio id="cart-sound" preload="auto"><source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmEcBjiS2fPEciYEjqitrGEcCGGfj+Ly2IlVFApGm+DyvGYOGpSabLvt559NEA1QpuPwtmcCdIfH8N2QQAIUXrTp66hVFApGm+DyvGEcBzYrtYrg8NmJSNUcdIfM8diJVxQKRpzg8rxhHAc2K6eE4/DViFQUCkacrmeOGJi47qxpHg1Qp+HwwGMcCEOj5PLYiVYUCkae4PK8YhwHNius41IEAw==" type="audio/wav"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

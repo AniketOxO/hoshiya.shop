@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Responsive Test - Hoshiya</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-responsive.css">
+    <style>
+        .test-container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: #fff;
+            border: 3px solid #000;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 0 #000;
+        }
+        .test-section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .test-item {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #000;
+        }
+        .test-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+        .test-button:active {
+            transform: scale(0.95);
+        }
+        .viewport-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #000;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 9999;
+        }
+        .breakpoint-indicator {
+            display: none;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        @media (max-width: 374px) {
+            .breakpoint-indicator.xs { display: block; background: #ff6b6b; color: white; }
+        }
+        @media (min-width: 375px) and (max-width: 480px) {
+            .breakpoint-indicator.sm { display: block; background: #feca57; color: black; }
+        }
+        @media (min-width: 481px) and (max-width: 600px) {
+            .breakpoint-indicator.md { display: block; background: #48dbfb; color: black; }
+        }
+        @media (min-width: 601px) and (max-width: 768px) {
+            .breakpoint-indicator.lg { display: block; background: #1dd1a1; color: white; }
+        }
+        @media (min-width: 769px) and (max-width: 900px) {
+            .breakpoint-indicator.xl { display: block; background: #5f27cd; color: white; }
+        }
+        @media (min-width: 901px) {
+            .breakpoint-indicator.xxl { display: block; background: #0abde3; color: white; }
+        }
+        .touch-test {
+            width: 100%;
+            height: 200px;
+            background: #f0f0f0;
+            border: 2px dashed #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            user-select: none;
+        }
+        .touch-test.active {
+            background: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Viewport Info -->
+    <div class="viewport-info" id="viewportInfo">
+        <div>Width: <span id="width">0</span>px</div>
+        <div>Height: <span id="height">0</span>px</div>
+        <div>Device: <span id="device">Unknown</span></div>
+    </div>
+
+    <div class="test-container">
+        <h1 style="text-align: center; margin-bottom: 40px;">📱 Mobile Responsive Test</h1>
+
+        <!-- Breakpoint Indicators -->
+        <div class="breakpoint-indicator xs">🔴 Extra Small Mobile (&lt; 375px)</div>
+        <div class="breakpoint-indicator sm">🟡 Small Mobile (375px - 480px)</div>
+        <div class="breakpoint-indicator md">🔵 Mobile (481px - 600px)</div>
+        <div class="breakpoint-indicator lg">🟢 Large Mobile (601px - 768px)</div>
+        <div class="breakpoint-indicator xl">🟣 Tablet (769px - 900px)</div>
+        <div class="breakpoint-indicator xxl">🔷 Desktop (901px+)</div>
+
+        <!-- Touch Target Test -->
+        <div class="test-section">
+            <h2>1. Touch Target Size Test</h2>
+            <p>All buttons should be at least 44x44px for easy tapping on mobile devices.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                <button class="test-button">44x44px ✓</button>
+                <button class="test-button">Tap Me</button>
+                <button class="test-button">Another</button>
+                <button class="test-button">One More</button>
+            </div>
+        </div>
+
+        <!-- Typography Test -->
+        <div class="test-section">
+            <h2>2. Typography & Readability Test</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                This is 16px text with 1.6 line height. It should be easily readable on mobile devices without zooming. 
+                The minimum font size should be 16px to prevent iOS from auto-zooming on input focus.
+            </p>
+            <p style="font-size: 14px;">This is 14px text (too small for mobile)</p>
+            <p style="font-size: 18px;">This is 18px text (perfect for headings)</p>
+        </div>
+
+        <!-- Touch Interaction Test -->
+        <div class="test-section">
+            <h2>3. Touch Interaction Test</h2>
+            <p>Tap and hold the area below to test touch feedback:</p>
+            <div class="touch-test" id="touchTest">
+                👆 Tap or Click Here
+            </div>
+        </div>
+
+        <!-- Form Elements Test -->
+        <div class="test-section">
+            <h2>4. Form Elements Test</h2>
+            <p>Inputs should be 16px to prevent iOS zoom:</p>
+            <input type="text" placeholder="Email address" style="width: 100%; padding: 14px; font-size: 16px; border: 2px solid #000; border-radius: 8px; margin-bottom: 10px;">
+            <input type="tel" placeholder="Phone number" style="width: 100%; padding: 14px; font-size: 16px; border: 2px solid #000; border-radius: 8px; margin-bottom: 10px;">
+            <textarea placeholder="Your message" style="width: 100%; padding: 14px; font-size: 16px; border: 2px solid #000; border-radius: 8px; min-height: 100px;"></textarea>
+        </div>
+
+        <!-- Responsive Grid Test -->
+        <div class="test-section">
+            <h2>5. Responsive Grid Test</h2>
+            <p>Grid should adjust based on screen size:</p>
+            <div class="test-grid">
+                <div class="test-item">Item 1</div>
+                <div class="test-item">Item 2</div>
+                <div class="test-item">Item 3</div>
+                <div class="test-item">Item 4</div>
+            </div>
+        </div>
+
+        <!-- Image Responsiveness Test -->
+        <div class="test-section">
+            <h2>6. Image Responsiveness Test</h2>
+            <p>Images should scale properly on all devices:</p>
+            <img src="images/HoshiyaLaunch37.png" alt="Test Image" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #000;">
+        </div>
+
+        <!-- Spacing Test -->
+        <div class="test-section">
+            <h2>7. Mobile Spacing Test</h2>
+            <div style="padding: 20px; background: #e0e0e0; border-radius: 8px;">
+                <p>Mobile padding: 16px</p>
+                <p>Desktop padding: 24px</p>
+                <p>Spacing should be comfortable for touch on mobile.</p>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="test-button">← Back to Home</a>
+        </div>
+    </div>
+
+    <script src="mobile-ux.js"></script>
+    <script>
+        // Update viewport info
+        function updateViewportInfo() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            document.getElementById('width').textContent = width;
+            document.getElementById('height').textContent = height;
+            
+            let device = 'Desktop';
+            if (width <= 374) device = 'XS Mobile';
+            else if (width <= 480) device = 'Small Mobile';
+            else if (width <= 600) device = 'Mobile';
+            else if (width <= 768) device = 'Large Mobile';
+            else if (width <= 900) device = 'Tablet';
+            else if (width <= 1100) device = 'Small Desktop';
+            
+            document.getElementById('device').textContent = device;
+        }
+
+        // Touch test
+        const touchTest = document.getElementById('touchTest');
+        touchTest.addEventListener('mousedown', () => touchTest.classList.add('active'));
+        touchTest.addEventListener('mouseup', () => touchTest.classList.remove('active'));
+        touchTest.addEventListener('mouseleave', () => touchTest.classList.remove('active'));
+        touchTest.addEventListener('touchstart', () => touchTest.classList.add('active'));
+        touchTest.addEventListener('touchend', () => touchTest.classList.remove('active'));
+
+        // Update on load and resize
+        updateViewportInfo();
+        window.addEventListener('resize', updateViewportInfo);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(updateViewportInfo, 100);
+        });
+    </script>
+</body>
+</html>

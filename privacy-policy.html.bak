@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Privacy Policy - Hoshiya</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar"><div class="container"><a href="index.html" class="logo">Hoshiya</a></div></nav>
+  </header>
+
+  <main class="container" style="padding:120px 20px 60px">
+    <h1>Privacy Policy</h1>
+    <p>Last updated: October 9, 2025</p>
+    <p>This Privacy Policy explains how Hoshiya collects, uses, discloses, and protects your personal information when you visit or make a purchase from our site. By using the site you consent to the collection and use of information in accordance with this policy.</p>
+
+    <h2>Information We Collect</h2>
+    <ul>
+      <li><strong>Account and Order Data:</strong> name, email address, shipping and billing addresses, phone number, order history.</li>
+      <li><strong>Payment Data:</strong> payment instrument identifiers processed by our payment providers (we do not store full card data on our servers).</li>
+      <li><strong>Technical Data:</strong> IP address, device and browser details, operating system, referral and browsing data.</li>
+      <li><strong>Cookies & Tracking:</strong> cookies, web beacons, pixels, and analytics data used to improve your experience and measure site performance.</li>
+    </ul>
+
+    <h2>How We Use Your Information</h2>
+    <p>We use collected information to:</p>
+    <ul>
+      <li>Process and fulfill orders, manage accounts, and provide customer support.</li>
+      <li>Send transactional emails (order confirmations, shipping updates) and marketing communications when you opt-in.</li>
+      <li>Detect and prevent fraud and improve site security.</li>
+      <li>Analyze site use and improve products, features, and content.</li>
+    </ul>
+
+    <h2>Sharing & Disclosure</h2>
+    <p>We may share personal information with service providers who perform services on our behalf (payment processors, shipping carriers, analytics providers). We may also disclose information when required by law or to protect our rights.</p>
+
+    <h2>Cookies & Similar Technologies</h2>
+    <p>We use cookies and similar technologies to personalize content, remember preferences, and measure performance. You can control cookies through your browser settings; disabling cookies may affect site functionality.</p>
+
+    <h2>Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have rights to access, correct, delete, or port your personal information, and to object to certain processing. To exercise these rights, contact us at <a href="mailto:ezyarohaclo@gmail.com">ezyarohaclo@gmail.com</a>.</p>
+
+    <h2>Data Retention & Security</h2>
+    <p>We retain personal information for as long as necessary to fulfill the purposes outlined in this policy or to comply with legal obligations. We take reasonable administrative, technical, and physical measures to protect your information, but no method of transmission or storage is completely secure.</p>
+
+    <h2>Children</h2>
+    <p>Our site is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13.</p>
+
+    <h2>Changes to this Policy</h2>
+    <p>We may update this policy occasionally. We will post changes on this page with a revised effective date.</p>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this Privacy Policy, contact us at <a href="mailto:ezyarohaclo@gmail.com">ezyarohaclo@gmail.com</a>.</p>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom"><p>&copy; 2025 Hoshiya. All rights reserved.</p></div>
+    </div>
+  </footer>
+</body>
+</html>

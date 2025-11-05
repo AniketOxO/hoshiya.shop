@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lookbook — Hoshiya</title>
+  <meta name="description" content="Seasonal manga spreads showcasing our products." />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <a href="index.html#home" class="logo" style="text-decoration:none; color:inherit;">Hoshiya</a>
+          <div class="logo-accent"></div>
+        </div>
+        <div class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="index.html#home" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            
+            <li><a href="lookbook.html" class="nav-link active">Lookbook</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <div class="search-wrap" role="search" aria-label="Site search">
+            <input id="site-search" class="search-input" type="search" placeholder="Search products..." aria-label="Search products" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded="false" autocomplete="off" />
+            <button class="search-icon-btn" aria-label="Search" title="Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <ul id="search-suggestions" class="search-suggestions" role="listbox" aria-label="Search suggestions"></ul>
+          </div>
+          <button class="theme-btn" onclick="toggleTheme()"><span class="theme-icon" aria-hidden="true"></span></button>
+          <button class="cart-btn" onclick="toggleCart()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m3 3 1.664 9.98A2 2 0 0 0 6.64 15h9.72a2 2 0 0 0 1.976-1.02L21 5H7"></path>
+              <path d="M7 5V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            <span class="cart-count">0</span>
+          </button>
+          <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding: 120px 0 30px;">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <h2 class="section-title">
+          <span class="title-text">Seasonal Lookbook</span>
+          <div class="title-underline"></div>
+        </h2>
+        <div class="manga-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" style="padding-top:0;">
+    <div class="container">
+      <!-- Search Results Banner -->
+      <div id="search-banner" class="search-banner hidden" aria-live="polite"></div>
+      <div class="lookbook-filter">
+        <button class="btn btn-outline btn-small" data-season="all">All</button>
+        <button class="btn btn-outline btn-small" data-season="spring">Spring</button>
+        <button class="btn btn-outline btn-small" data-season="summer">Summer</button>
+        <button class="btn btn-outline btn-small" data-season="autumn">Autumn</button>
+        <button class="btn btn-outline btn-small" data-season="winter">Winter</button>
+      </div>
+      <div id="lookbook-grid" class="lookbook-grid"></div>
+      <!-- People Section -->
+      <div class="people-section" style="margin-top:28px">
+        <h3 class="people-heading"><span class="people-en">People</span><span class="people-jp">人物</span></h3>
+        <div id="people-grid" class="people-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lookbook Lightbox -->
+  <div id="lookbox" class="lookbox" aria-hidden="true">
+    <div class="lookbox-panel" role="dialog" aria-modal="true">
+      <div class="lookbox-prev" title="Previous" aria-label="Previous">‹</div>
+      <div class="lookbox-next" title="Next" aria-label="Next">›</div>
+      <div class="lookbox-close" title="Close" aria-label="Close">✕</div>
+      <div id="lookbox-img" class="lookbox-img"></div>
+      <div class="lookbox-meta"><div id="lookbox-title" class="lookbox-title"></div><div id="lookbox-tag" class="lookbox-tag"></div></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Hoshiya</h4>
+          <p>Where style meets substance in the most epic way possible.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="community.html">Community</a></li>
+            <!-- About and Contact removed from footer per request -->
+            <li><a href="return-policy.html">Return Policy</a></li>
+            <li><a href="refund-policy.html">Refund Policy</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <!-- combined About & Contact link removed -->
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Hoshiya. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar (shared) -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <button class="cart-close" onclick="toggleCart()">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+  <div class="cart-total"><span>Total: <span id="cart-total">0.00</span></span></div>
+      <button id="cart-checkout-btn" class="btn btn-primary btn-full"><span>Checkout</span></button>
+    </div>
+  </div>
+  <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+  <!-- Compare Drawer (shared) -->
+  <div id="compare-drawer" class="compare-drawer" aria-hidden="true">
+    <div class="compare-header">
+      <h3>Compare Products</h3>
+      <button class="compare-close" onclick="toggleCompare()">×</button>
+    </div>
+    <div id="compare-content" class="compare-content"></div>
+  </div>
+  <button id="compare-fab" class="compare-fab" title="Open compare" onclick="toggleCompare()">⇄ <span id="compare-count">0</span></button>
+
+  
+
+  <script src="script.js"></script>
+  <script>
+    const spreads = [
+  { id:1, season:'spring', title:'Bloom & Boom', img:'images/springlookbook.png' },
+  { id:2, season:'summer', title:'Heat Lines', img:'images/summer.png' },
+  { id:3, season:'autumn', title:'Falling Panels', img:'images/autumn.png' },
+  { id:4, season:'winter', title:'Snow & Ink', img:'images/snowy.png' },
+  { id:5, season:'summer', title:'Neon Nights', img:'images/neonlight.png' }
+    ];
+  // Active lightbox navigation context
+  let currentNavList = [];// array of {id, img}
+  let currentNavMode = 'spreads';
+    // People mapped to specific looks
+    const people = [
+  { name:'Hana', lookId:1, img:'images/springhana.png' },
+  { name:'Riku', lookId:2, img:'images/rikusummer.png' },
+  { name:'Sora', lookId:3, img:'images/dirtsora.png' },
+      { name:'Yuki', lookId:4 },
+      { name:'Neon Crew', lookId:5 },
+      // extra sample entries (can be updated with your assets later)
+      { name:'Akira', lookId:2 },
+      { name:'Mina', lookId:1 },
+      { name:'Kenji', lookId:3 },
+  { name:'Aoi', lookId:5, img:'images/lostinstarlight.webp' },
+  { name:'Taro', lookId:4, img:'images/tarolookbook.png' }
+    ];
+    function renderLookbook(season='all'){
+      const grid = document.getElementById('lookbook-grid');
+      const list = season==='all'? spreads : spreads.filter(s=>s.season===season);
+      grid.innerHTML = list.map(s=>`<button class=\"look-card\" data-id=\"${s.id}\" aria-label=\"Open ${s.title}\"><div class=\"panel-border\"></div><div class=\"look-img\" style=\"background-image:url('${s.img}')\"></div><div class=\"look-meta\"><div class=\"look-title\">${s.title}</div><div class=\"look-tag\">#${s.season}</div></div></button>`).join('');
+      // wire click
+      // Set nav to spreads for this season view
+      currentNavMode = 'spreads';
+      currentNavList = list.map(s=>({id:s.id, img:s.img}));
+      grid.querySelectorAll('.look-card').forEach(card=>card.addEventListener('click',()=> {
+        currentNavMode = 'spreads';
+        currentNavList = list.map(s=>({id:s.id, img:s.img}));
+        openLook(+card.dataset.id);
+      }));
+      // mark active filter
+      document.querySelectorAll('.lookbook-filter [data-season]').forEach(b=>{
+        b.classList.toggle('active', b.dataset.season===season);
+      })
+      // cache current view for lightbox nav handled by currentNavList
+    }
+    // lightbox logic
+  const lookbox = document.getElementById('lookbox');
+    const imgEl = document.getElementById('lookbox-img');
+    const titleEl = document.getElementById('lookbox-title');
+    const tagEl = document.getElementById('lookbox-tag');
+    let currentIndex = -1; // index in current list
+    function openLook(ref, overrides={}){
+      const activeList = (currentNavList && currentNavList.length)
+        ? currentNavList
+        : spreads.map(s=>({id:s.id, img:s.img, season:s.season}));
+      const useKey = (typeof ref === 'string') || (activeList.length && 'key' in activeList[0]);
+      const idx = activeList.findIndex(x=> useKey ? x.key === ref : x.id === ref);
+      if(idx<0) return;
+      currentIndex = idx;
+      const entry = activeList[idx];
+      const spreadObj = entry.id != null ? (spreads.find(x=>x.id===entry.id) || {}) : {};
+      // basic preload to reduce flicker
+      const i = new Image();
+      const imgUrl = (entry && entry.img) || overrides.img || spreadObj.img || '';
+      i.onload = ()=>{ imgEl.style.backgroundImage = `url('${imgUrl}')`; };
+      i.onerror = ()=>{ imgEl.style.backgroundImage = 'none'; imgEl.setAttribute('data-fallback','Image not available'); };
+      i.src = imgUrl;
+      // Title/tag: show person name when navigating People; otherwise spread title
+      if (entry.personName) {
+        titleEl.textContent = entry.personName;
+        tagEl.textContent = entry.season ? `#${entry.season}` : '';
+      } else {
+        titleEl.textContent = spreadObj.title || '';
+        tagEl.textContent = spreadObj.season ? `#${spreadObj.season}` : '';
+      }
+      lookbox.classList.add('open');
+      document.body.classList.add('modal-open');
+      lookbox.setAttribute('aria-hidden','false');
+      const lookIdForHash = entry.id != null ? entry.id : (spreadObj.id != null ? spreadObj.id : '');
+      if (lookIdForHash !== '') history.replaceState(null,'',`#look=${lookIdForHash}`);
+    }
+    function closeLook(){
+      lookbox.classList.remove('open');
+      document.body.classList.remove('modal-open');
+      lookbox.setAttribute('aria-hidden','true');
+      if(location.hash.startsWith('#look=')) history.replaceState(null,'','#');
+    }
+    function step(delta){
+      if(currentIndex<0) return;
+      const activeList = (currentNavList && currentNavList.length) ? currentNavList : spreads.map(s=>({id:s.id, img:s.img, season:s.season}));
+      const nextIndex = (currentIndex + delta + activeList.length) % activeList.length;
+      const nextEntry = activeList[nextIndex];
+      currentIndex = nextIndex;
+      openLook(nextEntry.key != null ? nextEntry.key : nextEntry.id);
+    }
+    document.addEventListener('keydown', (e)=>{
+      if(!lookbox.classList.contains('open')) return;
+      if(e.key==='Escape') closeLook();
+      if(e.key==='ArrowRight') step(1);
+      if(e.key==='ArrowLeft') step(-1);
+    });
+    lookbox.addEventListener('click',(e)=>{ if(e.target===lookbox) closeLook(); });
+    document.querySelector('.lookbox-close')?.addEventListener('click', closeLook);
+    document.querySelector('.lookbox-prev')?.addEventListener('click', ()=> step(-1));
+    document.querySelector('.lookbox-next')?.addEventListener('click', ()=> step(1));
+    document.addEventListener('DOMContentLoaded',()=>{
+      // filter clicks
+      document.querySelectorAll('.lookbook-filter [data-season]').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const season = btn.dataset.season;
+          renderLookbook(season);
+          renderPeople(season);
+          history.replaceState(null,'', season==='all' ? '#' : `#season=${season}`);
+        });
+      });
+      // deep link
+      const hash = location.hash;
+      const mSeason = hash.match(/#season=(spring|summer|autumn|winter)/);
+      const mLook = hash.match(/#look=(\d+)/);
+  const initialSeason = mSeason ? mSeason[1] : 'all';
+  renderLookbook(initialSeason);
+  renderPeople(initialSeason);
+      if(mLook){ openLook(+mLook[1]); }
+      // handle hash changes (external nav)
+      window.addEventListener('hashchange', ()=>{
+        const h = location.hash;
+        const ms = h.match(/#season=(spring|summer|autumn|winter)/);
+        const ml = h.match(/#look=(\d+)/);
+        if(ms){ renderLookbook(ms[1]); }
+        if(ms){ renderPeople(ms[1]); }
+        if(ml){ openLook(+ml[1]); }
+        if(!ms && !ml && lookbox.classList.contains('open')) closeLook();
+      });
+    });
+
+    // Touch swipe for lightbox (mobile)
+    (function(){
+      let startX = 0, startY = 0, active = false;
+      lookbox.addEventListener('touchstart', (e)=>{
+        if(!lookbox.classList.contains('open')) return;
+        const t = e.touches[0];
+        startX = t.clientX; startY = t.clientY; active = true;
+      }, {passive:true});
+      lookbox.addEventListener('touchmove', (e)=>{
+        // passive; do nothing, but could track later
+      }, {passive:true});
+      lookbox.addEventListener('touchend', (e)=>{
+        if(!active) return; active = false;
+        const t = e.changedTouches && e.changedTouches[0];
+        if(!t) return;
+        const dx = t.clientX - startX; const dy = t.clientY - startY;
+        if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)){
+          if(dx < 0) step(1); else step(-1);
+        }
+      });
+    })();
+
+    // Render People section, filtered by season if provided
+    function renderPeople(season='all'){
+      const grid = document.getElementById('people-grid');
+      if(!grid) return;
+      const list = people
+        .map(p=>({ person:p, spread: spreads.find(s=>s.id===p.lookId) }))
+        .filter(x=>x.spread)
+        .filter(x=> season==='all' ? true : x.spread.season===season);
+        // Build a navigation list for people (unique keys, keep names and seasons)
+        const peopleNavList = list.map(({person, spread}, idx)=>({ key:`person:${idx}:${spread.id}`, id: spread.id, img: person.img || spread.img, personName: person.name, season: spread.season }));
+        grid.innerHTML = list.map(({person, spread})=>{
+          const href = `#season=${spread.season}&look=${spread.id}`;
+          const thumb = person.img || spread.img;
+          return `<div class="person-card" data-key="person:${list.findIndex(x=>x.person.name===person.name && x.spread.id===spread.id)}:${spread.id}" data-open-id="${spread.id}" data-thumb="${thumb}" data-name="${person.name}" tabindex="0" role="button" aria-label="Open ${person.name}'s look">
+                    <div class="person-thumb" style="background-image:url('${thumb}')" aria-hidden="true"></div>
+                    <div class="person-meta">
+                      <a class="person-name" href="${href}" title="View ${person.name}'s look">${person.name}</a>
+                      <span class="person-tag">#${spread.season}</span>
+                    </div>
+                  </div>`;
+        }).join('');
+        // interactivity: clicking card opens, Enter key opens
+        grid.querySelectorAll('.person-card').forEach(card=>{
+          const key = card.getAttribute('data-key');
+          card.addEventListener('click', (e)=>{
+            // avoid interfering when clicking the anchor (let deep-link work)
+            if(!(e.target instanceof HTMLAnchorElement)) { currentNavMode='people'; currentNavList = peopleNavList; openLook(key); }
+          });
+          card.addEventListener('keydown', (e)=>{
+            if(e.key==='Enter' || e.key===' '){
+              e.preventDefault(); currentNavMode='people'; currentNavList = peopleNavList; openLook(key);
+            }
+          });
+        });
+    }
+  </script>
+</body>
+</html>

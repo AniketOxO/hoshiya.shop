@@ -1,0 +1,857 @@
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoshiya – Your Anime Lifestyle Destination</title>
+    <meta name="description" content="Hoshiya – Your Anime Lifestyle Destination. ">
+    <meta name="keywords" content="Hoshiya, Hoshiya anime shop, hoshiya shop, anime store, manga shop, anime figures, anime stickers, anime tees, buy anime merch, hoshiya ecommerce, anime lifestyle, anime collectibles, anime India, manga India, anime gifts, anime online store, anime shopping, anime accessories, anime home decor, anime plush, anime keychains, anime posters, anime t-shirts, anime hoodies, anime bags, anime jewelry, anime pins, anime art, anime blog, anime news, anime reviews, anime recommendations, anime community, anime events, anime sales, anime offers, anime deals, anime discounts, anime shop India, best anime shop">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml.txt">
+    <meta name="robots" content="index, follow">
+    <!-- Google Search Console (replace with your code) -->
+    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE"> -->
+    <meta property="og:site_name" content="Hoshiya Anime Shop">
+    <meta property="og:title" content="Hoshiya – Your Anime Lifestyle Destination">
+    <meta property="og:description" content="Shop anime figures, manga collectibles, apparel, stickers, and more at Hoshiya. India's best anime shop for fans.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hoshiya.shop/">
+    <meta property="og:image" content="https://hoshiya.shop/images/HoshiyaLaunch37.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hoshiya – Your Anime Lifestyle Destination">
+    <meta name="twitter:description" content="Shop anime figures, manga collectibles, apparel, stickers, and more at Hoshiya. India's best anime shop for fans.">
+    <meta name="twitter:image" content="https://hoshiya.shop/images/HoshiyaLaunch37.png">
+    <link rel="icon" href="images/favicon-circle.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="images/favicon-circle.svg">
+    <link rel="shortcut icon" href="images/favicon-circle.svg">
+        <!-- Preload critical resources -->
+        <link rel="preload" href="styles.css" as="style">
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Roboto+Mono:wght@400;700&family=Kosugi+Maru&family=Sawarabi+Mincho&display=swap" as="style">
+        <!-- Preload hero images -->
+        <link rel="preload" href="images/anime-character-sketches-26.webp" as="image" type="image/webp">
+        <!-- Organization Schema for Google Rich Results -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Hoshiya",
+            "url": "https://hoshiya.shop/",
+            "logo": "https://hoshiya.shop/images/HoshiyaLaunch37.png"
+        }
+        </script>
+        <!-- Optional: configure contact form endpoint without editing JS -->
+        <meta name="form-endpoint" content="">
+        <!-- EmailJS config for newsletter (Option B) -->
+        <!-- Replace the following three with your EmailJS public key, service ID, and template ID -->
+        <meta name="emailjs-public-key" content="">
+        <meta name="emailjs-service" content="">
+        <meta name="emailjs-template" content="">
+        <!-- Optional: configure loader minimum display time (ms) -->
+        <meta name="loader-min" content="1600">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Roboto+Mono:wght@400;700&family=Kosugi+Maru&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+</head>
+    <!-- Removed old SVG favicon links -->
+        <!-- Organization Schema for Google Rich Results -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Hoshiya",
+            "url": "https://hoshiya.shop/",
+            "logo": "https://hoshiya.shop/images/HoshiyaLaunch37.png"
+        }
+        </script>
+        <!-- Optional: configure contact form endpoint without editing JS -->
+        <meta name="form-endpoint" content="">
+        <!-- EmailJS config for newsletter (Option B) -->
+        <!-- Replace the following three with your EmailJS public key, service ID, and template ID -->
+        <meta name="emailjs-public-key" content="">
+        <meta name="emailjs-service" content="">
+        <meta name="emailjs-template" content="">
+        <!-- Optional: configure loader minimum display time (ms) -->
+        <meta name="loader-min" content="1600">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Roboto+Mono:wght@400;700&family=Kosugi+Maru&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div id="loading-screen" class="loading-screen auto" aria-busy="true" aria-live="polite">
+        <div class="loader-stage premium">
+            <div class="title-card" aria-hidden="true">
+                <div class="tc-frame"></div>
+                <div class="tc-ink-swipe"></div>
+                <div class="tc-wordmark">Hoshiya</div>
+                <div class="tc-tagline">Your Anime Lifestyle Destination</div>
+            </div>
+            <div class="tc-scanlines" aria-hidden="true"></div>
+            <div class="tc-progress" role="status" aria-label="Loading">
+                <div class="tc-progress-track">
+                    <div id="loader-fill" class="tc-progress-fill" style="width:0%"></div>
+                </div>
+                <div class="tc-progress-meta">
+                    <span id="loader-percent" class="tc-percent">0%</span>
+                    <span id="loader-status" class="tc-status">Warming ink…</span>
+                </div>
+            </div>
+            <div class="tc-sfx" aria-hidden="true">
+                <span class="tc-sfx-chip chip-1">ザッ</span>
+                <span class="tc-sfx-chip chip-2">ドンッ</span>
+                <span class="tc-sfx-chip chip-3">バンッ</span>
+            </div>
+            <button class="loader-skip" type="button" title="Skip loading">Skip</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1 class="logo">Hoshiya</h1>
+                    <div class="logo-accent"></div>
+                </div>
+                
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="products.html" class="nav-link">Products</a></li>
+            
+                        <li><a href="lookbook.html" class="nav-link">Lookbook</a></li>
+                        <li><a href="community.html" class="nav-link">Community</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-actions">
+                    <div class="search-wrap" role="search" aria-label="Site search">
+                        <input id="site-search" class="search-input" type="search" placeholder="Search products..." aria-label="Search products" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded="false" autocomplete="off" />
+                        <button class="search-icon-btn" aria-label="Search" title="Search">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                        <ul id="search-suggestions" class="search-suggestions" role="listbox" aria-label="Search suggestions"></ul>
+                    </div>
+                    <button class="theme-btn" onclick="toggleTheme()">
+                        <span class="theme-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="cart-btn" onclick="toggleCart()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m3 3 1.664 9.98A2 2 0 0 0 6.64 15h9.72a2 2 0 0 0 1.976-1.02L21 5H7"></path>
+                            <path d="M7 5V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <button class="menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="manga-text-bubble">
+                        <h1 class="hero-title">
+                            <span class="title-main">Hoshiya – Your Anime Lifestyle Destination</span>
+                        </h1>
+                        <p class="hero-subtitle inked">大胆なスタイル。比類なき品質。ユニークな一品を。</p>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="scrollToProducts()">
+                            <span>Shop Now</span>
+                            <div class="btn-effect"></div>
+                        </button>
+                        <a class="btn btn-secondary" href="lookbook.html" aria-label="Explore Lookbook">
+                            <span>Explore</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="manga-panel">
+                        <div class="panel-border"></div>
+                        <div class="panel-content">
+                            <div class="speed-lines"></div>
+                            <div class="hero-product hero-slideshow">
+                                <img class="hero-image hero-image-1" src="images/anime-character-sketches-26.webp" alt="Anime character sketch figure Hoshiya" />
+                                <img class="hero-image hero-image-3" src="images/wallpaper-anime-sketch_1137879-199601.webp" alt="Anime wallpaper sketch manga Hoshiya" />
+                                <!-- Manga Sound Effects -->
+                                <div class="sound-effect pow">POW!</div>
+                                <div class="sound-effect boom">BOOM!</div>
+                                <div class="sound-effect wow">WOW!</div>
+                            </div>
+                            <!-- Floating SFX Elements (replacing stars) -->
+                            <div class="floating-star floating-sfx star-1">BAM!</div>
+                            <div class="floating-star floating-sfx star-2">ZAP!</div>
+                            <div class="floating-star floating-sfx star-3">WHAM!</div>
+                        </div>
+                    </div>
+                    <!-- Action Lines -->
+                    <div class="action-lines"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    
+
+    
+
+    
+
+    <!-- Products moved to products.html for decluttered home page -->
+
+    <!-- Category Tiles (Anime Merch) -->
+    <section class="category-tiles" aria-label="Shop by category">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><span class="title-text">Shop by Category</span><div class="title-underline"></div></h2>
+            </div>
+            <div class="tiles-grid">
+                <a class="tile has-media" href="products.html#stickers" aria-label="Sticker Stash">
+                    <div class="tile-media" data-src="images/narutostickerpack.png" style="background-image:url('images/narutostickerpack.png');"></div>
+                    <div class="tile-label">
+                        <div class="tile-title">Sticker Stash</div>
+                        <div class="tile-sub">Vinyl & holographic packs</div>
+                    </div>
+                </a>
+                <a class="tile has-media" href="products.html#bobble" aria-label="Bobble Head">
+                    <div class="tile-media" data-src="images/narutobobblehead.png" style="background-image:url('images/narutobobblehead.png');"></div>
+                    <div class="tile-label">
+                        <div class="tile-title">Bobble Head</div>
+                        <div class="tile-sub">Collectible chibi heads</div>
+                    </div>
+                </a>
+                <a class="tile has-media" href="products.html#figures" aria-label="Action Figure">
+                    <div class="tile-media" data-src="images/Levi Ackerman Action Figure.png" style="background-image:url('images/Levi Ackerman Action Figure.png');"></div>
+                    <div class="tile-label">
+                        <div class="tile-title">Action Figure</div>
+                        <div class="tile-sub">Poseable heroes & villains</div>
+                    </div>
+                </a>
+                <a class="tile has-media" href="products.html#tees" aria-label="Tees">
+                    <div class="tile-media" data-src="images/Naruto tee.png" style="background-image:url('images/Naruto tee.png');"></div>
+                    <div class="tile-label">
+                        <div class="tile-title">Tees</div>
+                        <div class="tile-sub">Graphic anime t‑shirts</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Picks -->
+    <section class="featured-picks" aria-label="Featured picks">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><span class="title-text">Featured Picks</span><div class="title-underline"></div></h2>
+            </div>
+            <div id="featured-grid" class="featured-grid"></div>
+        </div>
+    </section>
+
+    <!-- Upcoming Collabs -->
+    <section class="upcoming-collabs" aria-label="Upcoming collaborations">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Upcoming Collabs</span>
+                    <div class="title-underline"></div>
+                </h2>
+                <div class="manga-dots"></div>
+            </div>
+            <div class="collab-ticker" aria-hidden="true">
+                <div class="track">
+                    <span class="item"><span class="dot"></span> Ezy × Hushiyo — Apparel Drop</span>
+                    <span class="item"><span class="dot"></span> Hoshiya × Blackpink — Bobble Heads</span>
+                    <span class="item"><span class="dot"></span> Hoshiya × Land of the Lustrous — Clothing</span>
+                    <span class="item"><span class="dot"></span> Hoshiya × Shōnen — Bobble Series</span>
+                    <!-- duplicate items for seamless loop -->
+                    <span class="item"><span class="dot"></span> Ezy × Hushiyo — Apparel Drop</span>
+                    <span class="item"><span class="dot"></span> Hoshiya × Blackpink — Bobble Heads</span>
+                    <span class="item"><span class="dot"></span> Hoshiya × Land of the Lustrous — Clothing</span>
+                    <span class="item"><span class="dot"></span> Hoshiya × Shōnen — Bobble Series</span>
+                </div>
+            </div>
+
+            <div class="collab-grid">
+                <article class="collab-card" aria-labelledby="collab-eh">
+                    <div class="badge sale" aria-hidden="true">COMING SOON</div>
+                    <div class="collab-tape" aria-hidden="true">Coming Soon</div>
+                    <a href="#frieren" class="collab-media cover" aria-label="Hoshiya × Frieren: Beyond Journey's End preview">
+                        <img src="images/Hoshiya X Frieren Beyond Journey's End Timeless Travelers.png" alt="Hoshiya × Frieren: Beyond Journey's End banner" loading="lazy" decoding="async" />
+                    </a>
+                    <div class="collab-info">
+                        <h3 id="collab-eh" class="collab-title">Hoshiya × Frieren: Beyond Journey's End</h3>
+                        <div class="collab-meta">
+                            <span class="collab-tag">Action Figure</span>
+                            <span class="collab-tag">Coming Soon</span>
+                        </div>
+                        <p class="collab-desc">Signature tee capsule. Bold inks. Limited run.</p>
+                        <div class="collab-actions">
+                            <a class="btn btn-outline btn-small" href="#newsletter" aria-label="Get notified for Hoshiya × Frieren">Get Notified</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="collab-card" aria-labelledby="collab-sp">
+                    <div class="badge bestseller" aria-hidden="true">COMING SOON</div>
+                    <div class="collab-tape" aria-hidden="true">Coming Soon</div>
+                    <a href="#blackpink" class="collab-media contain-fill-color" aria-label="Open Hoshiya X Blackpink details" style="--fill:#0d0d0f">
+                        <img src="images/Hoshiya x Blackpink.png" alt="Hoshiya X Blackpink banner" loading="lazy" decoding="async" />
+                    </a>
+                    <div class="collab-info">
+                        <h3 id="collab-sp" class="collab-title">Hoshiya X Blackpink</h3>
+                        <div class="collab-meta">
+                            <span class="collab-tag">Bobble Heads</span>
+                            <span class="collab-tag">Coming Soon</span>
+                        </div>
+                        <p class="collab-desc">Collector bobble heads of all four members with manga‑style bases and limited edition packaging.</p>
+                        <div class="collab-actions">
+                            <a class="btn btn-outline btn-small" href="#blackpink" aria-label="Open details for Hoshiya X Blackpink">Get Notified</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="collab-card" aria-labelledby="collab-mappa">
+                    <div class="badge limited" aria-hidden="true">COMING SOON</div>
+                    <div class="collab-tape" aria-hidden="true">Coming Soon</div>
+                        <a href="#lustrous" class="collab-media cover" aria-label="Hoshiya × Land of the Lustrous preview">
+                        <img src="images/Hoshiya X Land of the lustrous.png" alt="Hoshiya × Land of the Lustrous banner" loading="lazy" decoding="async" />
+                    </a>
+                    <div class="collab-info">
+                        <h3 id="collab-mappa" class="collab-title">Hoshiya × Land of the Lustrous</h3>
+                        <div class="collab-meta">
+                            <span class="collab-tag">Clothing</span>
+                            <span class="collab-tag">Coming Soon</span>
+                        </div>
+                        <p class="collab-desc">Exclusive apparel pieces inspired by crystalline landscapes and gem warriors.</p>
+                        <div class="collab-actions">
+                            <a class="btn btn-outline btn-small" href="#newsletter" aria-label="Get notified for MAPPA collab">Get Notified</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="collab-card" aria-labelledby="collab-sj">
+                    <div class="badge" aria-hidden="true">COMING SOON</div>
+                    <div class="collab-tape" aria-hidden="true">Drop · 06/2025</div>
+                    <a href="#mobpsycho" class="collab-media cover" aria-label="Open Hoshiya × Mob Psycho 100 details">
+                        <img src="images/Hoshiya X Mob Psycho 100.png" alt="Hoshiya × Mob Psycho 100 banner" loading="lazy" decoding="async" />
+                    </a>
+                    <div class="collab-info">
+                        <h3 id="collab-sj" class="collab-title">Hoshiya × Mob Psycho 100</h3>
+                        <div class="collab-meta">
+                            <span class="collab-tag">Bobble Head</span>
+                            <span class="collab-tag">Coming Soon</span>
+                        </div>
+                        <p class="collab-desc">Chibi bobble series with box art by guest artist.</p>
+                        <div class="collab-actions">
+                            <a class="btn btn-outline btn-small" href="#newsletter" aria-label="Get notified for Shonen collab">Get Notified</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hoshiya × Mob Psycho 100 Collab Detail -->
+    <section id="mobpsycho" class="collab-detail" aria-label="Hoshiya × Mob Psycho 100 detail">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Hoshiya × Mob Psycho 100</span>
+                    <div class="title-underline"></div>
+                </h2>
+            </div>
+            <div class="collab-hero">
+                <div class="collab-hero-media">
+                    <img src="images/Hoshiya X Mob Psycho 100.png" alt="Hoshiya × Mob Psycho 100" loading="lazy" decoding="async" />
+                </div>
+                <div class="collab-hero-copy">
+                    <p>Psychic energy meets premium craft. Limited figures and display pieces from the world of Mob Psycho 100.</p>
+                </div>
+            </div>
+            <div class="collab-members-grid">
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Mob Psycho 100  Shigeo Kageyama.png" alt="Shigeo Kageyama (Mob)" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Shigeo Kageyama</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Mob Psycho 100  Ritsu Kageyama.png" alt="Ritsu Kageyama" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Ritsu Kageyama</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Mob Psycho 100  Teruki Hanazawa.png" alt="Teruki Hanazawa" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Teruki Hanazawa</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Mob Psycho 100  Arataka Reigen The Great Spirit Medium.png" alt="Arataka Reigen — The Great Spirit Medium" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Arataka Reigen — The Great Spirit Medium</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Mob Psycho 100  Dimple(Ekubo).png" alt="Dimple (Ekubo)" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Dimple (Ekubo)</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Mob Psycho 100  Musashi Goda.png" alt="Musashi Goda" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Musashi Goda</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLACKPINK Collab Detail -->
+    <section id="blackpink" class="collab-detail" aria-label="Hoshiya X Blackpink detail">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Hoshiya × Blackpink</span>
+                    <div class="title-underline"></div>
+                </h2>
+            </div>
+            <div class="collab-hero">
+                <div class="collab-hero-media">
+                    <img src="images/Hoshiya x Blackpink.png" alt="Hoshiya × Blackpink" loading="lazy" decoding="async" />
+                </div>
+                <div class="collab-hero-copy">
+                    <p>Exclusive bobble heads of all four members. Limited run with manga‑style box art.</p>
+                </div>
+            </div>
+            <div class="collab-members-grid">
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Blackpink Jennie.png" alt="Jennie bobble head" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Jennie</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Blackpink lisa.png" alt="Lisa bobble head" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lisa</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Blackpink Jisso.png" alt="Jisoo bobble head" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Jisoo</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Blackpink Rose.png" alt="Rosé bobble head" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Rosé</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hoshiya × Land of the Lustrous Collab Detail -->
+    <section id="lustrous" class="collab-detail" aria-label="Hoshiya × Land of the Lustrous detail">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Hoshiya × Land of the Lustrous</span>
+                    <div class="title-underline"></div>
+                </h2>
+            </div>
+            <div class="collab-hero">
+                <div class="collab-hero-media">
+                    <img src="images/Hoshiya X Land of the lustrous.png" alt="Hoshiya × Land of the Lustrous" loading="lazy" decoding="async" />
+                </div>
+                <div class="collab-hero-copy">
+                    <p>A crystalline capsule featuring characters and vistas from Land of the Lustrous. Limited pieces with manga‑style presentation.</p>
+                </div>
+            </div>
+            <div class="collab-members-grid">
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya x Land of the Lustrous - Phosphophylite.png" alt="Phosphophylite" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Phosphophylite</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya x Land of the Lustrous - Cinnabar.png" alt="Cinnabar" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Cinnabar</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya x Land of the Lustrous - Diamond.png" alt="Diamond" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Diamond</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya x Land of the Lustrous - Lunarian.png" alt="Lunarian" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lunarian</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya x Land of the Lustrous - Ethereal Landscape.png" alt="Ethereal Landscape" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Ethereal Landscape</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya x Land of the Lustrous -Crystalline Dreamscape.png" alt="Crystalline Dreamscape" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Crystalline Dreamscape</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya x Land of the Lustrous Fractured Gold.png" alt="Fractured Gold" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Fractured Gold</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hoshiya × Frieren: Beyond Journey's End Collab Detail -->
+    <section id="frieren" class="collab-detail" aria-label="Hoshiya × Frieren: Beyond Journey's End detail">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Hoshiya × Frieren: Beyond Journey's End</span>
+                    <div class="title-underline"></div>
+                </h2>
+            </div>
+            <div class="collab-hero">
+                <div class="collab-hero-media">
+                    <img src="images/Hoshiya X Frieren Beyond Journey's End Timeless Travelers.png" alt="Frieren Timeless Travelers" loading="lazy" decoding="async" />
+                </div>
+                <div class="collab-hero-copy">
+                    <p>Timeless companions on a new journey. Limited apparel and collectible art pieces inspired by Frieren’s world.</p>
+                </div>
+            </div>
+            <div class="collab-members-grid">
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Frieren Beyond Journey's End  Himmel The Hero's Legacy.png" alt="Himmel — The Hero's Legacy" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Himmel — The Hero's Legacy</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Frieren Beyond Journey's End  Stark and Fern.png" alt="Stark and Fern" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Stark and Fern</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Frieren Beyond Journey's End Mimic Treasure Trap.png" alt="Mimic Treasure Trap" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mimic Treasure Trap</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Frieren Beyond Journey's End Aura the Guillotine.png" alt="Aura the Guillotine" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Aura the Guillotine</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Frieren Frieren Grand Mage of the Ages Diorama.png" alt="Frieren — Grand Mage Diorama" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Frieren — Grand Mage Diorama</h3>
+                    </div>
+                </div>
+                <div class="member-card product-card">
+                    <div class="product-image" style="background:#fff">
+                        <img src="images/Hoshiya X Frieren Beyond Journey's End Serie.png" alt='Serie "Ancient Wisdom"' loading="lazy" decoding="async" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Serie "Ancient Wisdom"</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-panel">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Lightning-fast shipping worldwide</p>
+                </div>
+                <div class="feature-panel">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Secure Payment</h3>
+                    <p>100% secure transactions guaranteed</p>
+                </div>
+                <div class="feature-panel">
+                    <div class="feature-icon">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>Only the finest products make the cut</p>
+                </div>
+                <div class="feature-panel">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Perfect Fit</h3>
+                    <p>Curated selection for every need</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">What Heroes Say</span>
+                    <div class="title-underline"></div>
+                </h2>
+                <div class="manga-dots"></div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="character-avatar">
+                        <div class="avatar-img">👨‍💼</div>
+                        <div class="avatar-frame"></div>
+                    </div>
+                    <div class="speech-bubble testimonial">
+                        <p>"This store has the most amazing products! Lightning-fast delivery and top-notch quality. Absolutely love it!"</p>
+                        <div class="customer-name">- Alex Chen</div>
+                        <div class="customer-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="character-avatar">
+                        <div class="avatar-img">👩‍🎨</div>
+                        <div class="avatar-frame"></div>
+                    </div>
+                    <div class="speech-bubble testimonial">
+                        <p>"The unique design and style of this website is incredible! Shopping here feels like an adventure."</p>
+                        <div class="customer-name">- Sarah Johnson</div>
+                        <div class="customer-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="character-avatar">
+                        <div class="avatar-img">👨‍🎓</div>
+                        <div class="avatar-frame"></div>
+                    </div>
+                    <div class="speech-bubble testimonial">
+                        <p>"Best online shopping experience ever! The manga-inspired design is both fun and functional."</p>
+                        <div class="customer-name">- Mike Rodriguez</div>
+                        <div class="customer-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter">
+        <div class="container">
+            <div class="newsletter-panel">
+                <div class="newsletter-content">
+                    <h3>Stay in the Loop!</h3>
+                    <p>Get exclusive deals and manga-style updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="btn btn-primary">
+                            <span>Subscribe</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Hoshiya</h4>
+                    <p>Where style meets substance in the most epic way possible.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <!-- About and Contact removed from footer per request -->
+                        <li><a href="lookbook.html">Lookbook</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="return-policy.html">Return Policy</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <!-- combined About & Contact link removed -->
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/hoshiya.official/" class="social-link" target="_blank" rel="noopener" title="Instagram"><img src="images/social/instagram.svg" alt="Instagram" style="height:28px;width:28px;vertical-align:middle;"></a>
+                        <a href="https://x.com/" class="social-link" target="_blank" rel="noopener" title="X"><img src="images/social/x.svg" alt="X" style="height:28px;width:28px;vertical-align:middle;"></a>
+                        <a href="https://pinterest.com/" class="social-link" target="_blank" rel="noopener" title="Pinterest"><img src="images/social/pinterest.svg" alt="Pinterest" style="height:28px;width:28px;vertical-align:middle;"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hoshiya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total: <span id="cart-total">0.00</span></span>
+            </div>
+            <button id="cart-checkout-btn" class="btn btn-primary btn-full">
+                <span>Checkout</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Compare Drawer -->
+    <div id="compare-drawer" class="compare-drawer" aria-hidden="true">
+        <div class="compare-header">
+            <h3>Compare Products</h3>
+            <button class="compare-close" onclick="toggleCompare()">×</button>
+        </div>
+        <div id="compare-content" class="compare-content"></div>
+    </div>
+    <button id="compare-fab" class="compare-fab" title="Open compare" onclick="toggleCompare()">⇄ <span id="compare-count">0</span></button>
+
+    
+
+    <!-- Dark Mode Toggle -->
+    <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">
+        <span class="theme-icon" aria-hidden="true"></span>
+    </button>
+
+    <!-- Section Transition Overlay -->
+    <div id="section-transition" class="section-transition" aria-hidden="true">
+        <div class="st-panel">
+            <div class="st-wipe"></div>
+            <div class="st-word">Hoshiya</div>
+        </div>
+    </div>
+
+    <!-- Sound Effects -->
+    <audio id="click-sound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmEcBjiS2fPEciYEkl1fdJmvrJChNjVhj+LwtmEcBzN2x/DdkEELGGHO8tiJOCgZaLvt559NEAxPp+PwwGEcCEGn4/C2YRwHM3bI8N2QQgEkxhsaGJUabLvt559NEA1QpuPwtmMcdIfH8N2QQAIUXrTp66hVFApGm+DyvGEcBzYrp+TxyJ+7l1ixFYEaAA==">
+    </audio>
+    <audio id="cart-sound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmEcBjiS2fPEciYEjqitrGEcCGGfj+Ly2IlVFApGm+DyvGYOGpSabLvt559NEA1QpuPwtmcCdIfH8N2QQAIUXrTp66hVFApGm+DyvGEcBzYrtYrg8NmJSNUcdIfM8diJVxQKRpzg8rxhHAc2K6eE4/DViFQUCkacrmeOGJi47qxpHg1Qp+HwwGMcCEOj5PLYiVYUCkae4PK8YhwHNius41IEAw==" type="audio/wav">
+    </audio>
+
+        <script src="script.js"></script>
+        <script>
+            // Fallback: ensure loader hides even if main JS is delayed
+            (function(){
+                var el = document.getElementById('loading-screen');
+                if(!el) return;
+                setTimeout(function(){
+                    if (el && !el.classList.contains('hidden')) { el.classList.add('hidden'); }
+                }, 3000);
+            })();
+        </script>
+</body>
+</html>

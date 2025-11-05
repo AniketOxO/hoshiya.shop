@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shipping and Delivery — Hoshiya</title>
+  <meta name="description" content="Shipping and Delivery information for Hoshiya - Your Anime Lifestyle Destination.">
+  <meta property="og:title" content="Shipping and Delivery — Hoshiya">
+  <meta property="og:description" content="Learn about our shipping times, delivery options, and tracking information.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shipping and Delivery — Hoshiya">
+  <meta name="twitter:description" content="Learn about our shipping times, delivery options, and tracking information.">
+  <meta name="twitter:image" content="images/og-image.svg">
+  <link rel="icon" href="images/favicon-circle.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="mobile-responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <a href="index.html#home" class="logo" style="text-decoration:none; color:inherit;">Hoshiya</a>
+          <div class="logo-accent"></div>
+        </div>
+        <div class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="index.html#home" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            <li><a href="lookbook.html" class="nav-link">Lookbook</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <div class="search-wrap" role="search" aria-label="Site search">
+            <input id="site-search" class="search-input" type="search" placeholder="Search products..." aria-label="Search products" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded="false" autocomplete="off" />
+            <button class="search-icon-btn" aria-label="Search" title="Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            </button>
+            <ul id="search-suggestions" class="search-suggestions" role="listbox" aria-label="Search suggestions"></ul>
+          </div>
+          <button class="theme-btn" onclick="toggleTheme()"><span class="theme-icon" aria-hidden="true"></span></button>
+          <button class="cart-btn" onclick="toggleCart()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 1.664 9.98A2 2 0 0 0 6.64 15h9.72a2 2 0 0 0 1.976-1.02L21 5H7"></path><path d="M7 5V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path></svg>
+            <span class="cart-count">0</span>
+          </button>
+          <button class="menu-toggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Shipping and Delivery Content -->
+  <section class="policy-page" style="padding-top:140px; padding-bottom:80px;">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">
+          <span class="title-text">Shipping and Delivery</span>
+          <div class="title-underline"></div>
+        </h1>
+        <p class="policy-intro">Fast, reliable shipping for all your anime treasures</p>
+      </div>
+
+      <div class="policy-content">
+        <div class="policy-section">
+          <h2>📦 Shipping Methods</h2>
+          <p>We offer multiple shipping options to ensure your anime collectibles reach you safely and on time:</p>
+          
+          <div style="margin: 20px 0;">
+            <h3>Standard Shipping (5-7 Business Days)</h3>
+            <ul>
+              <li>Free on orders over ₹999</li>
+              <li>₹99 for orders under ₹999</li>
+              <li>Available across India</li>
+              <li>Tracking included</li>
+            </ul>
+          </div>
+
+          <div style="margin: 20px 0;">
+            <h3>Express Shipping (2-3 Business Days)</h3>
+            <ul>
+              <li>₹199 for all orders</li>
+              <li>Available in major cities</li>
+              <li>Priority handling</li>
+              <li>Real-time tracking</li>
+            </ul>
+          </div>
+
+          <div style="margin: 20px 0;">
+            <h3>Same-Day Delivery (Select Cities)</h3>
+            <ul>
+              <li>₹299 for orders placed before 12 PM</li>
+              <li>Currently available in Mumbai, Delhi, and Bangalore</li>
+              <li>Order by noon, receive by evening</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="policy-section">
+          <h2>🌍 Delivery Coverage</h2>
+          <p><strong>Domestic Shipping (India):</strong> We ship to all states and union territories across India, including remote areas. Delivery times may vary for remote locations.</p>
+          <p><strong>International Shipping:</strong> Currently, we ship to select countries. International shipping costs are calculated at checkout based on destination and package weight.</p>
+          
+          <h3>International Delivery Times:</h3>
+          <ul>
+            <li><strong>Asia-Pacific:</strong> 7-10 business days</li>
+            <li><strong>Europe & UK:</strong> 10-15 business days</li>
+            <li><strong>North America:</strong> 10-15 business days</li>
+            <li><strong>Rest of World:</strong> 15-20 business days</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>⏱️ Processing Time</h2>
+          <p>Orders are processed within 1-2 business days (Monday-Friday, excluding holidays). You will receive an order confirmation email immediately after placing your order, followed by a shipping confirmation email with tracking details once your order is dispatched.</p>
+          <ul>
+            <li><strong>Standard items:</strong> 1-2 business days</li>
+            <li><strong>Pre-order items:</strong> Ships on release date</li>
+            <li><strong>Custom orders:</strong> 3-5 business days</li>
+            <li><strong>Limited editions:</strong> 1-2 business days (high priority)</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>📍 Order Tracking</h2>
+          <p>Track your order every step of the way:</p>
+          <ol>
+            <li>Check your email for the shipping confirmation with tracking number</li>
+            <li>Visit our <a href="profile.html" style="color: var(--primary-color); text-decoration: underline;">Order Status page</a> and enter your order number</li>
+            <li>Click the tracking link to see real-time updates from our courier partner</li>
+            <li>Receive SMS and email notifications for major delivery milestones</li>
+          </ol>
+          <p><strong>Note:</strong> Tracking information may take 24 hours to update after shipment.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>📋 What You Need to Know</h2>
+          
+          <h3>Delivery Address</h3>
+          <ul>
+            <li>Please ensure your delivery address is complete and accurate</li>
+            <li>Include apartment/flat numbers, landmarks, and contact phone number</li>
+            <li>We cannot modify the address after the order is shipped</li>
+            <li>For address changes, contact us immediately at <a href="mailto:ezyarohaclo@gmail.com" style="color: var(--primary-color); text-decoration: underline;">ezyarohaclo@gmail.com</a></li>
+          </ul>
+
+          <h3>Delivery Attempts</h3>
+          <ul>
+            <li>Our courier partner will make up to 3 delivery attempts</li>
+            <li>You'll receive a call/SMS before delivery</li>
+            <li>If delivery fails, the package will be held at the local facility for 7 days</li>
+            <li>After 7 days, undelivered orders will be returned to us</li>
+          </ul>
+
+          <h3>Signature Required</h3>
+          <ul>
+            <li>High-value orders (over ₹5,000) require signature confirmation</li>
+            <li>Someone must be available to receive the package</li>
+            <li>Valid government ID may be required for verification</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>📦 Packaging</h2>
+          <p>We take extra care in packaging your anime collectibles:</p>
+          <ul>
+            <li><strong>Bubble wrap protection:</strong> All fragile items are individually wrapped</li>
+            <li><strong>Sturdy boxes:</strong> Double-walled cardboard for maximum protection</li>
+            <li><strong>Eco-friendly materials:</strong> Recyclable and biodegradable packaging</li>
+            <li><strong>Moisture protection:</strong> Waterproof inner lining for all shipments</li>
+            <li><strong>Gift wrapping:</strong> Available at checkout for ₹50</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>💰 Shipping Costs</h2>
+          <p>Shipping costs are calculated based on:</p>
+          <ul>
+            <li>Order total value</li>
+            <li>Package weight and dimensions</li>
+            <li>Delivery location (metro/non-metro/remote)</li>
+            <li>Selected shipping method</li>
+          </ul>
+          <p><strong>Free Shipping Promotion:</strong> Get free standard shipping on orders over ₹999!</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>⚠️ Delivery Issues</h2>
+          
+          <h3>Damaged Packages</h3>
+          <p>If your package arrives damaged:</p>
+          <ol>
+            <li>Do not accept the delivery if the outer package is severely damaged</li>
+            <li>Take photos of the damaged package</li>
+            <li>Contact us within 48 hours at <a href="mailto:ezyarohaclo@gmail.com" style="color: var(--primary-color); text-decoration: underline;">ezyarohaclo@gmail.com</a></li>
+            <li>We'll arrange for a replacement or refund immediately</li>
+          </ol>
+
+          <h3>Lost Packages</h3>
+          <p>If your tracking shows "delivered" but you haven't received your package:</p>
+          <ol>
+            <li>Check with neighbors, building security, or household members</li>
+            <li>Look around your delivery location (porch, garage, side door)</li>
+            <li>Wait 24 hours (sometimes packages are marked delivered before actual delivery)</li>
+            <li>Contact us if still not received - we'll file a claim with the courier</li>
+          </ol>
+
+          <h3>Delayed Deliveries</h3>
+          <p>Delays may occur due to:</p>
+          <ul>
+            <li>Weather conditions or natural disasters</li>
+            <li>Public holidays and festivals</li>
+            <li>Customs clearance (for international orders)</li>
+            <li>Incorrect or incomplete address</li>
+            <li>Remote delivery locations</li>
+          </ul>
+          <p>We'll notify you of any significant delays. Contact us if your order is delayed beyond the estimated delivery date.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>🌐 International Shipping</h2>
+          
+          <h3>Customs and Duties</h3>
+          <ul>
+            <li>International customers are responsible for customs duties and taxes</li>
+            <li>These charges are determined by your country's customs authority</li>
+            <li>We mark all packages with accurate value declarations</li>
+            <li>Refusal to pay customs may result in package return (not eligible for refund)</li>
+          </ul>
+
+          <h3>Import Restrictions</h3>
+          <ul>
+            <li>Some countries restrict certain anime merchandise</li>
+            <li>Check your country's import regulations before ordering</li>
+            <li>We are not responsible for packages seized by customs</li>
+            <li>Prohibited items cannot be refunded</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>🎁 Special Services</h2>
+          
+          <h3>Gift Messages</h3>
+          <ul>
+            <li>Add a personalized message at checkout (free)</li>
+            <li>Messages are printed on premium card stock</li>
+            <li>Gift receipts available (prices hidden)</li>
+          </ul>
+
+          <h3>Multi-Address Shipping</h3>
+          <ul>
+            <li>Send items to multiple addresses in one order</li>
+            <li>Perfect for gifting to friends across different locations</li>
+            <li>Each address is charged separately for shipping</li>
+          </ul>
+
+          <h3>Hold for Pickup</h3>
+          <ul>
+            <li>Available in select cities - hold your package at courier facility</li>
+            <li>Pick up at your convenience within 7 days</li>
+            <li>Valid ID required for pickup</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>🔄 Combined Shipping</h2>
+          <p>Ordering multiple items? We'll automatically combine them into one shipment when possible to save on shipping costs and reduce environmental impact.</p>
+          <ul>
+            <li>Pre-orders may ship separately when released</li>
+            <li>Hazmat items (certain paints, sprays) may ship separately</li>
+            <li>Oversized items may require separate packaging</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>📞 Need Help?</h2>
+          <p>For any shipping-related questions or concerns, we're here to help:</p>
+          <ul>
+            <li><strong>Email:</strong> <a href="mailto:ezyarohaclo@gmail.com" style="color: var(--primary-color); text-decoration: underline;">ezyarohaclo@gmail.com</a></li>
+            <li><strong>Contact Form:</strong> <a href="contact.html" style="color: var(--primary-color); text-decoration: underline;">Visit our Contact Page</a></li>
+            <li><strong>Live Chat:</strong> Available Mon-Fri, 9:00 AM - 6:00 PM IST</li>
+            <li><strong>Response Time:</strong> Within 24 hours</li>
+          </ul>
+        </div>
+
+        <div class="policy-note">
+          <p><strong>Important:</strong> Delivery times are estimates and not guaranteed. While we strive for on-time delivery, unforeseen circumstances may cause delays. We appreciate your patience and understanding!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Hoshiya</h4>
+          <p>Where style meets substance in the most epic way possible.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="return-policy.html">Return Policy</a></li>
+            <li><a href="refund-policy.html">Refund Policy</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+            <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Customer Service</h4>
+          <ul>
+            <li><a href="contact.html">Help Center</a></li>
+            <li><a href="return-policy.html">Returns</a></li>
+            <li><a href="shipping-delivery.html">Shipping Info</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-link">📱</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">📷</a>
+            <a href="#" class="social-link">📘</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Hoshiya. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <button class="cart-close" onclick="toggleCart()">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total: <span id="cart-total">0.00</span></span></div>
+      <button class="btn btn-primary btn-full"><span>Checkout</span></button>
+    </div>
+  </div>
+  <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+  <!-- Dark Mode Toggle -->
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()"><span class="theme-icon" aria-hidden="true"></span></button>
+
+  <script src="script.js"></script>
+</body>
+</html>

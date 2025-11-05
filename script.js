@@ -86,8 +86,8 @@ function deriveBadges(p){
     return badges;
 }
 
-// DOM Elements
-const loadingScreen = document.getElementById('loading-screen');
+// DOM Elements (some will be retrieved inside DOMContentLoaded for timing)
+let loadingScreen = null; // Will be set inside DOMContentLoaded
 const productGrid = document.getElementById('product-grid');
 const filterTabs = document.querySelectorAll('.filter-tab');
 const loadMoreBtn = document.getElementById('load-more-btn');
@@ -103,6 +103,8 @@ const cartSound = document.getElementById('cart-sound');
 
 // Initialize App
 document.addEventListener('DOMContentLoaded', function() {
+    // Get loading screen element inside DOMContentLoaded to ensure it exists
+    loadingScreen = document.getElementById('loading-screen');
     // Ensure CSS has an accurate scrollbar gap to avoid header clipping
     try{ setScrollbarGap(); }catch{}
     window.addEventListener('resize', () => { try{ setScrollbarGap(); }catch{} });

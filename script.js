@@ -87,7 +87,6 @@ function deriveBadges(p){
 }
 
 // DOM Elements (some will be retrieved inside DOMContentLoaded for timing)
-let loadingScreen = null; // Will be set inside DOMContentLoaded
 const productGrid = document.getElementById('product-grid');
 const filterTabs = document.querySelectorAll('.filter-tab');
 const loadMoreBtn = document.getElementById('load-more-btn');
@@ -101,10 +100,72 @@ const themeToggle = document.getElementById('theme-toggle');
 const clickSound = document.getElementById('click-sound');
 const cartSound = document.getElementById('cart-sound');
 
+// START LOADING ANIMATION IMMEDIATELY (before DOMContentLoaded)
+(function initLoadingAnimation() {
+    const loadingScreen = document.getElementById('loading-screen');
+    if (!loadingScreen) return;
+    
+    const skip = loadingScreen.querySelector('.loader-skip');
+    const percentEl = document.getElementById('loader-percent');
+    const fillEl = document.getElementById('loader-fill');
+    const statusEl = document.getElementById('loader-status');
+    const hide = () => loadingScreen.classList.add('hidden');
+    const minMeta = document.querySelector('meta[name="loader-min"]');
+    const minMs = Math.max(0, parseInt((minMeta && minMeta.getAttribute('content')) || '1500', 10) || 0);
+    const now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
+    const elapsed = Math.max(0, now - __APP_BOOT_TS__);
+    const initialDelay = Math.max(0, minMs - elapsed);
+    let timer = setTimeout(hide, initialDelay);
+
+    // Trigger a subtle shake after the ink swipe finishes (~1s after start)
+    setTimeout(() => {
+        const tc = document.querySelector('.title-card');
+        if (tc) tc.classList.add('shake');
+    }, 1000);
+
+    // Progress animation (independent of real load — purely cosmetic)
+    let p = 0; 
+    const statuses = ['Warming ink…','Drawing panels…','Adding speed lines…','Final touches…'];
+    const tick = () => {
+        p = Math.min(100, p + Math.random()*14 + 6);
+        if (percentEl) percentEl.textContent = `${Math.round(p)}%`;
+        if (fillEl) fillEl.style.width = `${Math.min(100,p)}%`;
+        if (statusEl){
+            if (p < 30) statusEl.textContent = statuses[0];
+            else if (p < 55) statusEl.textContent = statuses[1];
+            else if (p < 80) statusEl.textContent = statuses[2];
+            else statusEl.textContent = statuses[3];
+        }
+        if (p < 96) progTimer = setTimeout(tick, 280);
+    };
+    let progTimer = setTimeout(tick, 200);
+    const clearProg = () => { if (progTimer) { clearTimeout(progTimer); progTimer = null; } };
+    
+    if (skip) {
+        skip.addEventListener('click', () => { 
+            if (timer) { clearTimeout(timer); } 
+            clearProg(); 
+            hide(); 
+        });
+    }
+    
+    // On full load, still respect the remaining time to meet the minimum
+    window.addEventListener('load', () => {
+        if (timer) { clearTimeout(timer); }
+        const now2 = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
+        const elapsed2 = Math.max(0, now2 - __APP_BOOT_TS__);
+        const remaining = Math.max(0, minMs - elapsed2);
+        timer = setTimeout(() => {
+            // Begin lift handoff slightly before fade
+            const ls = document.getElementById('loading-screen');
+            if (ls) ls.classList.add('lift');
+            setTimeout(() => { clearProg(); hide(); }, 260);
+        }, remaining);
+    }, { once: true });
+})();
+
 // Initialize App
 document.addEventListener('DOMContentLoaded', function() {
-    // Get loading screen element inside DOMContentLoaded to ensure it exists
-    loadingScreen = document.getElementById('loading-screen');
     // Ensure CSS has an accurate scrollbar gap to avoid header clipping
     try{ setScrollbarGap(); }catch{}
     window.addEventListener('resize', () => { try{ setScrollbarGap(); }catch{} });
@@ -139,60 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     } catch {}
     
-    // Hide loading screen after a delay (if present), and allow skip
-    if (loadingScreen) {
-        const skip = loadingScreen.querySelector('.loader-skip');
-        const percentEl = document.getElementById('loader-percent');
-        const fillEl = document.getElementById('loader-fill');
-        const statusEl = document.getElementById('loader-status');
-        const hide = () => loadingScreen.classList.add('hidden');
-        const minMeta = document.querySelector('meta[name="loader-min"]');
-        const minMs = Math.max(0, parseInt((minMeta && minMeta.getAttribute('content')) || '1500', 10) || 0);
-        const now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
-        const elapsed = Math.max(0, now - __APP_BOOT_TS__);
-        const initialDelay = Math.max(0, minMs - elapsed);
-        let timer = setTimeout(hide, initialDelay);
-
-        // Trigger a subtle shake after the ink swipe finishes (~1s after start)
-        setTimeout(() => {
-            const tc = document.querySelector('.title-card');
-            if (tc) tc.classList.add('shake');
-        }, 1000);
-
-        // Progress animation (independent of real load — purely cosmetic)
-        let p = 0; const statuses = ['Warming ink…','Drawing panels…','Adding speed lines…','Final touches…'];
-        const tick = () => {
-            p = Math.min(100, p + Math.random()*14 + 6);
-            if (percentEl) percentEl.textContent = `${Math.round(p)}%`;
-            if (fillEl) fillEl.style.width = `${Math.min(100,p)}%`;
-            if (statusEl){
-                if (p < 30) statusEl.textContent = statuses[0];
-                else if (p < 55) statusEl.textContent = statuses[1];
-                else if (p < 80) statusEl.textContent = statuses[2];
-                else statusEl.textContent = statuses[3];
-            }
-            if (p < 96) progTimer = setTimeout(tick, 280);
-        };
-        let progTimer = setTimeout(tick, 200);
-        const clearProg = () => { if (progTimer) { clearTimeout(progTimer); progTimer = null; } };
-        if (skip) {
-            skip.addEventListener('click', () => { if (timer) { clearTimeout(timer); } clearProg(); hide(); });
-        }
-        // On full load, still respect the remaining time to meet the minimum
-        window.addEventListener('load', () => {
-            if (timer) { clearTimeout(timer); }
-            const now2 = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
-            const elapsed2 = Math.max(0, now2 - __APP_BOOT_TS__);
-            const remaining = Math.max(0, minMs - elapsed2);
-            timer = setTimeout(() => {
-                // Begin lift handoff slightly before fade
-                const ls = document.getElementById('loading-screen');
-                if (ls) ls.classList.add('lift');
-                setTimeout(() => { clearProg(); hide(); }, 260);
-            }, remaining);
-        }, { once: true });
-    }
-
     // Initialize products
     products = [...sampleProducts];
     // Auto-append additional sticker products if image files are present.
